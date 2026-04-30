@@ -35,7 +35,7 @@ export default function About() {
           Wall Stori aspires and promises to be a shining pioneer, lead innovator
           and tangible impact driven player in the realty industry. The long term
           goal is to be a shining beacon in the industry and later become an
-          undeniable force to reckon in South India's real estate market.
+          undeniable force to reckon in South India&apos;s real estate market.
         </p>
 
         <p className={styles.body}>

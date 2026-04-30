@@ -17,10 +17,10 @@ export default function Vision() {
 
         <div className={styles.right}>
           <blockquote className={styles.quote}>
-            "We aspire to be a thought led pioneer and an alternative challenger
+            &quot;We aspire to be a thought led pioneer and an alternative challenger
             brand in the Real Estate Terrain of South India. We promise to
             reimagine, innovate, strive hard to cater to discerning progressive
-            buyers and leave behind an indelible imprint in the housing category"
+            buyers and leave behind an indelible imprint in the housing category&quot;
           </blockquote>
         </div>
       </div>

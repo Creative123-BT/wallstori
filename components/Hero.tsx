@@ -19,7 +19,7 @@ export default function Hero() {
         <div className={styles.divider} />
 
         <p className={styles.tagline}>
-          Pioneering South India's real estate terrain with vision,
+          Pioneering South India&apos;s real estate terrain with vision,
           innovation, and an indelible mark in the housing category.
         </p>
 
