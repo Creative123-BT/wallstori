@@ -1,0 +1,137 @@
+.about {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* ── Label column ── */
+.labelCol {
+  background: var(--cream);
+  padding: 100px 24px;
+  border-right: 1px solid rgba(91, 94, 166, 0.12);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 400;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+/* ── Image column ── */
+.imageCol {
+  background-color: #2C3A4A;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.imageBg {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg,  transparent, transparent 39px, rgba(255,255,255,0.04) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.04) 40px),
+    linear-gradient(160deg, #3a4e63 0%, #1e2d3d 60%, #111b28 100%);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(17, 27, 40, 0.75) 100%);
+}
+
+.imageCaption {
+  position: absolute;
+  bottom: 72px;
+  left: 44px;
+  right: 44px;
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 1.3vw, 15px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.7;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* ── Text column ── */
+.textCol {
+  background: var(--cream);
+  padding: 100px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+}
+
+.logoLockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brandName {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.brandSub {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.45em;
+  color: var(--navy);
+  opacity: 0.5;
+  margin-top: 3px;
+}
+
+.body {
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.9;
+  color: var(--navy);
+  opacity: 0.82;
+  font-weight: 300;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .textCol { padding: 80px 40px; }
+}
+
+@media (max-width: 768px) {
+  .about {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .labelCol {
+    writing-mode: initial;
+    padding: 50px 32px 24px;
+    border-right: none;
+    border-bottom: 1px solid rgba(91, 94, 166, 0.12);
+    justify-content: flex-start;
+  }
+
+  .label {
+    writing-mode: initial;
+    transform: none;
+  }
+
+  .imageCol { min-height: 56vw; }
+
+  .textCol { padding: 60px 32px; }
+}

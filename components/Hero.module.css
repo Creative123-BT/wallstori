@@ -1,0 +1,183 @@
+.hero {
+  min-height: 100vh;
+  background-color: var(--light-blue-bg);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 120px 8% 80px;
+}
+
+/* ── Wireframe architectural grid ── */
+.wireframe {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg,   transparent, transparent 59px, rgba(255,255,255,0.28) 60px),
+    repeating-linear-gradient(90deg,  transparent, transparent 59px, rgba(255,255,255,0.28) 60px);
+  pointer-events: none;
+}
+
+.wireframeFade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(184,205,216,0) 0%, rgba(184,205,216,0.7) 60%, var(--light-blue-bg) 100%),
+    repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255,255,255,0.08) 31px);
+  pointer-events: none;
+}
+
+/* ── Content ── */
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  max-width: 460px;
+  animation: heroIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+@keyframes heroIn {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.brandBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 20px;
+}
+
+.brandName {
+  font-family: var(--font-mono);
+  font-size: clamp(22px, 3.5vw, 38px);
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+.brandSub {
+  font-family: var(--font-mono);
+  font-size: clamp(8px, 1vw, 11px);
+  letter-spacing: 0.55em;
+  color: var(--navy);
+  opacity: 0.55;
+}
+
+.divider {
+  width: 64px;
+  height: 1px;
+  background: var(--navy);
+  opacity: 0.35;
+  margin: 28px 0;
+}
+
+.tagline {
+  font-family: var(--font-body);
+  font-size: clamp(15px, 1.6vw, 19px);
+  line-height: 1.85;
+  color: var(--navy);
+  opacity: 0.72;
+  font-style: italic;
+  font-weight: 300;
+  max-width: 400px;
+  margin-bottom: 36px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.btnPrimary {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 13px 28px;
+  background: var(--navy);
+  color: #fff;
+  transition: background 0.25s;
+}
+
+.btnPrimary:hover { background: var(--purple); }
+
+.btnGhost {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  border: 1px solid var(--navy);
+  color: var(--navy);
+  transition: all 0.25s;
+}
+
+.btnGhost:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+/* ── Scroll cue ── */
+.scrollCue {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: fadeIn 1.5s ease 1.2s both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.scrollLine {
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: var(--navy);
+  opacity: 0.35;
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 0.35; }
+  50%       { transform: scaleY(0.5); opacity: 0.15; }
+}
+
+.scrollLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: var(--navy);
+  opacity: 0.45;
+  text-transform: uppercase;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero {
+    justify-content: center;
+    padding: 120px 6% 80px;
+  }
+
+  .content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .divider { margin: 20px auto; }
+  .tagline { text-align: center; }
+  .actions { flex-wrap: wrap; justify-content: center; }
+}
