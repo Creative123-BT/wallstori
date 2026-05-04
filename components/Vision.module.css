@@ -16,12 +16,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
-  font-size: clamp(100px, 20vw, 260px);
+  font-family: var(--font-apollo-local);
+  font-size: clamp(120px, 25vw, 320px);
   font-style: italic;
   font-weight: 900;
-  color: var(--coral);
-  opacity: 0.22;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(232, 93, 111, 0.15); /* Using var(--coral) with low opacity */
   letter-spacing: -0.05em;
   line-height: 0.85;
   user-select: none;

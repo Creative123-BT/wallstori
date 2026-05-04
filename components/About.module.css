@@ -36,10 +36,10 @@
 .imageBg {
   position: absolute;
   inset: 0;
-  background:
-    repeating-linear-gradient(0deg,  transparent, transparent 39px, rgba(255,255,255,0.04) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.04) 40px),
-    linear-gradient(160deg, #3a4e63 0%, #1e2d3d 60%, #111b28 100%);
+  background-image: url('/images/about-hero.png');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7) contrast(1.1);
 }
 
 .imageOverlay {
