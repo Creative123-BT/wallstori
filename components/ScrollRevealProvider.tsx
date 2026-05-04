@@ -1,25 +1,61 @@
 "use client";
 
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollRevealProvider() {
-  useEffect(() => {
-    const targets = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // General reveal
+      gsap.utils.toArray<HTMLElement>(".reveal").forEach((el) => {
+        gsap.from(el, {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
         });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
-    );
+      });
 
-    targets.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+      // Left reveal
+      gsap.utils.toArray<HTMLElement>(".reveal-left").forEach((el) => {
+        gsap.from(el, {
+          x: -50,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        });
+      });
+
+      // Right reveal
+      gsap.utils.toArray<HTMLElement>(".reveal-right").forEach((el) => {
+        gsap.from(el, {
+          x: 50,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        });
+      });
+    });
+
+    return () => ctx.revert();
   }, []);
 
   return null;

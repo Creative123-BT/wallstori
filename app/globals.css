@@ -23,9 +23,9 @@
   --slate:         #B0BEC0;
 
   /* Typography */
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'Cormorant Garamond', Georgia, serif;
-  --font-mono:    'Space Mono', 'Courier New', monospace;
+  --font-display: var(--font-apollo-local), serif;
+  --font-body:    var(--font-apollo-local), sans-serif;
+  --font-mono:    var(--font-apollo-local), monospace;
 }
 
 html {

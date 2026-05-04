@@ -1,25 +1,21 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Playfair_Display, Cormorant_Garamond, Space_Mono } from "next/font/google";
+import localFont from "next/font/local";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
-  style: ["normal", "italic"],
-  variable: "--font-display",
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-body",
-});
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-mono",
+const apollo = localFont({
+  src: [
+    {
+      path: "../public/fonts/apollo/APOLLO.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/apollo/APOLLOItalic.otf",
+      weight: "400",
+      style: "italic",
+    },
+  ],
+  variable: "--font-apollo-local",
 });
 
 export const metadata: Metadata = {
@@ -35,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${spaceMono.variable}`}>
+    <html lang="en" className={`${apollo.variable}`}>
       <body>{children}</body>
     </html>
   );
