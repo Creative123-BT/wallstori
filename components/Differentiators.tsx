@@ -4,7 +4,12 @@ import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform, useInView } from "framer-motion";
 import styles from "./Differentiators.module.css";
 
-const ITEMS = [ /* same as yours */ ];
+const ITEMS = [
+  { num: "01", name: "Innovation\nDesign" },
+  { num: "02", name: "Quality\nAssurance" },
+  { num: "03", name: "Customer\nExperience" },
+  { num: "04", name: "Sustainable\nBuilding" }
+];
 
 function DiffCard({ item, index }: { item: typeof ITEMS[0]; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
