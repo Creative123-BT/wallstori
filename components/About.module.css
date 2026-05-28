@@ -22,7 +22,7 @@
   letter-spacing: -0.02em;
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  transform: rotate(180deg);
+  transform: rotate(180deg) !important;
 }
 
 /* ── Image column ── */
@@ -60,7 +60,9 @@
   line-height: 1.7;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  padding-left: 7px;
   z-index: 2;
+  border-left: 5px solid #5c5fa6;
 }
 
 /* ── Text column ── */
@@ -109,7 +111,9 @@
 
 /* ── RESPONSIVE ─────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .textCol { padding: 80px 40px; }
+  .textCol {
+    padding: 80px 40px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -128,10 +132,39 @@
 
   .label {
     writing-mode: initial;
-    transform: none;
+    transform: none !important;
   }
 
-  .imageCol { min-height: 56vw; }
+  .imageCol {
+    min-height: 56vw;
+  }
 
-  .textCol { padding: 60px 32px; }
+  .textCol {
+    padding: 60px 32px;
+  }
+}
+.statsRow {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+.statVal {
+  font-family: var(--font-mono);
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 700;
+  color: var(--purple);
+  line-height: 1;
+}
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+  opacity: 0.5;
+  margin-top: 4px;
 }

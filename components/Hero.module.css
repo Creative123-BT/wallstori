@@ -1,189 +1,192 @@
 .hero {
   min-height: 100vh;
-  background-color: var(--light-blue-bg);
+  background-color: #f9f9f9;
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  align-items: flex-end;
+  justify-content: flex-start;
   overflow: hidden;
-  padding: 120px 8% 80px;
+  padding: 140px 8% 100px;
 }
 
-/* ── Wireframe architectural grid ── */
-.wireframe {
+/* ── Subtle Light Engineering Grid ── */
+.gridOverlay {
   position: absolute;
   inset: 0;
   background-image:
-    repeating-linear-gradient(0deg,   transparent, transparent 59px, rgba(255,255,255,0.28) 60px),
-    repeating-linear-gradient(90deg,  transparent, transparent 59px, rgba(255,255,255,0.28) 60px);
+    linear-gradient(rgba(28, 43, 74, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 43, 74, 0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
   pointer-events: none;
+  z-index: 0;
 }
 
-.wireframeFade {
+/* ── Blueprint Container & Image ── */
+.blueprintContainer {
   position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(135deg, rgba(184,205,216,0) 0%, rgba(184,205,216,0.7) 60%, var(--light-blue-bg) 100%),
-    repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255,255,255,0.08) 31px);
+  top: 12%;
+  right: -5%;
+  width: 60%;
+  max-width: 900px;
+  height: 85%;
   pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ── Content ── */
+.blueprintImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── Content Container (Bottom-Left) ── */
 .content {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
-  max-width: 460px;
-  animation: heroIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 480px;
+  margin-top: 40px;
+  will-change: transform;
 }
 
-@keyframes heroIn {
-  from { opacity: 0; transform: translateX(40px); }
-  to   { opacity: 1; transform: translateX(0); }
+.logoBlock {
+  margin-bottom: 12px;
 }
 
-.brandBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  margin-top: 20px;
-}
-
-.brandName {
-  font-family: var(--font-mono);
-  font-size: clamp(22px, 3.5vw, 38px);
-  font-weight: 700;
-  color: var(--navy);
-  letter-spacing: 0.1em;
+.signatureLogo {
+  font-size: clamp(48px, 6vw, 76px);
+  color: var(--coral);
+  /* soft coral/pinkish red #E85D6F */
   line-height: 1;
-}
-
-.brandSub {
-  font-family: var(--font-mono);
-  font-size: clamp(8px, 1vw, 11px);
-  letter-spacing: 0.55em;
-  color: var(--navy);
-  opacity: 0.55;
-}
-
-.divider {
-  width: 64px;
-  height: 1px;
-  background: var(--navy);
-  opacity: 0.35;
-  margin: 28px 0;
+  display: inline-block;
+  transform: rotate(-3deg);
+  transform-origin: left bottom;
+  user-select: none;
 }
 
 .tagline {
   font-family: var(--font-body);
-  font-size: clamp(15px, 1.6vw, 19px);
-  line-height: 1.85;
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.6;
   color: var(--navy);
-  opacity: 0.72;
-  font-style: italic;
-  font-weight: 300;
-  max-width: 400px;
-  margin-bottom: 36px;
+  font-weight: 500;
+  max-width: 380px;
+  margin-bottom: 200px;
+  opacity: 0.85;
+  margin-top: 20px;
 }
 
 .actions {
   display: flex;
   gap: 16px;
   align-items: center;
+  width: 100%;
 }
 
-.btnPrimary {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 13px 28px;
-  background: var(--navy);
-  color: #fff;
-  transition: background 0.25s;
+/* ── Discover More Button ── */
+.btnDiscover {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 14px 32px;
+  background: var(--coral);
+  color: #ffffff;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid var(--coral);
+  white-space: nowrap;
 }
 
-.btnPrimary:hover { background: var(--purple); }
-
-.btnGhost {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 12px 26px;
-  border: 1px solid rgba(28, 43, 74, 0.2);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: var(--navy);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btnGhost:hover {
-  background: var(--navy);
-  color: #fff;
-  border-color: var(--navy);
+.btnDiscover:hover {
+  background: #d65061;
+  border-color: #d65061;
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(28, 43, 74, 0.1);
+  box-shadow: 0 8px 24px rgba(232, 93, 111, 0.25);
 }
 
-/* ── Scroll cue ── */
-.scrollCue {
-  position: absolute;
-  bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  animation: fadeIn 1.5s ease 1.2s both;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.scrollLine {
-  display: block;
-  width: 1px;
-  height: 48px;
-  background: var(--navy);
-  opacity: 0.35;
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-
-@keyframes scrollPulse {
-  0%, 100% { transform: scaleY(1); opacity: 0.35; }
-  50%       { transform: scaleY(0.5); opacity: 0.15; }
-}
-
-.scrollLabel {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.3em;
+/* ── Get In Touch Hero Button ── */
+.btnGetInTouchHero {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 14px 32px;
+  background: transparent;
   color: var(--navy);
-  opacity: 0.45;
-  text-transform: uppercase;
+  border: 1.5px solid var(--navy);
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btnGetInTouchHero:hover {
+  background: var(--navy);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(28, 43, 74, 0.15);
+}
+
+/* ── Luxury Subtle Grain texture overlay ── */
+.grainOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px;
+  mix-blend-mode: multiply;
 }
 
 /* ── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 992px) {
+  .blueprintContainer {
+    width: 65%;
+    right: -8%;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
+    padding: 160px 6% 80px;
+    align-items: center;
     justify-content: center;
-    padding: 120px 6% 80px;
+  }
+
+  .blueprintContainer {
+    position: absolute;
+    width: 90%;
+    height: 70%;
+    top: 15%;
+    right: 5%;
+    left: 5%;
+    opacity: 0.15;
+    z-index: 1;
   }
 
   .content {
     align-items: center;
     text-align: center;
+    z-index: 2;
   }
 
-  .divider { margin: 20px auto; }
-  .tagline { text-align: center; }
-  .actions { flex-wrap: wrap; justify-content: center; }
+  .tagline {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }

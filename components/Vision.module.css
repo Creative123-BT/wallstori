@@ -21,7 +21,8 @@
   font-style: italic;
   font-weight: 900;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(232, 93, 111, 0.15); /* Using var(--coral) with low opacity */
+  -webkit-text-stroke: 5px rgba(232, 93, 111, 0.15);
+  /* Using var(--coral) with low opacity */
   letter-spacing: -0.05em;
   line-height: 0.85;
   user-select: none;
@@ -49,15 +50,16 @@
   color: #fff;
   line-height: 0.95;
   letter-spacing: -0.02em;
+  letter-spacing: 2px;
 }
 
 .quote {
   font-family: var(--font-body);
-  font-size: clamp(16px, 1.8vw, 21px);
-  font-style: italic;
-  font-weight: 300;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 100;
   color: rgba(255, 255, 255, 0.9);
-  line-height: 1.85;
+  line-height: 1.55;
+  letter-spacing: 1.2px;
   border: none;
   padding: 0;
   quotes: none;

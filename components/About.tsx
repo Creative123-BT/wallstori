@@ -1,97 +1,56 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import LogoBlocks from "./LogoBlocks";
 import styles from "./About.module.css";
 
-gsap.registerPlugin(ScrollTrigger);
+function WordReveal({ text, className }: { text: string; className?: string }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-15%" });
+  const words = text.split(" ");
+  return (
+    <p ref={ref} className={className} style={{ overflow: "hidden" }}>
+      {words.map((word, i) => (
+        <span key={i} style={{ display: "inline-block", overflow: "hidden", marginRight: "0.3em" }}>
+          <motion.span style={{ display: "inline-block" }} initial={{ y: "100%", opacity: 0 }} animate={inView ? { y: "0%", opacity: 1 } : {}} transition={{ duration: 0.7, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}>{word}</motion.span>
+        </span>
+      ))}
+    </p>
+  );
+}
 
 export default function About() {
-  const containerRef = useRef(null);
-  const imageRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
+  const imageY = useTransform(scrollYProgress, [0, 1], ["3%", "-3%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.02, 0.98]);
+  const labelY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
   const textRef = useRef(null);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      // Parallax effect for image
-      gsap.fromTo(
-        imageRef.current,
-        { y: 50 },
-        {
-          y: -50,
-          ease: "none",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        }
-      );
-
-      // Fade in text elements
-      gsap.from(".reveal-text", {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: textRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+  const textInView = useInView(textRef, { once: true, margin: "-10%" });
 
   return (
-    <section className={styles.about} id="about" ref={containerRef}>
-      {/* Left label column */}
+    <section className={styles.about} id="about" ref={sectionRef}>
       <div className={styles.labelCol}>
-        <h2 className={styles.label + " reveal-text"}>About</h2>
+        <motion.h2 className={styles.label} style={{ y: labelY }}>About</motion.h2>
       </div>
-
-      {/* Centre: dark room image */}
       <div className={styles.imageCol}>
-        <div className={styles.imageBg} ref={imageRef} />
+        <motion.div className={styles.imageBg} style={{ y: imageY, scale: imageScale }} />
         <div className={styles.imageOverlay} />
-        <p className={styles.imageCaption + " reveal-text"}>
-          When it comes to a<br />
-          prime piece of land or<br />
-          an aspirational home<br />
-          who else but us?
-        </p>
+        <motion.p className={styles.imageCaption} initial={{ opacity: 0, x: -30 }} animate={textInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8, delay: 0.4 }}>When it comes to a<br />prime piece of land or<br />an aspirational home<br />who else but us?</motion.p>
       </div>
-
-      {/* Right: text */}
       <div className={styles.textCol} ref={textRef}>
-        <div className={styles.logoLockup + " reveal-text"}>
+        <motion.div className={styles.logoLockup} initial={{ opacity: 0, x: 30 }} animate={textInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8 }}>
           <LogoBlocks variant="mini" />
-          <div>
-            <span className={styles.brandName}>WALL STORI</span>
-            <span className={styles.brandSub}>DEVELOPERS</span>
-          </div>
-        </div>
-
-        <p className={styles.body + " reveal-text"}>
-          Wall Stori aspires and promises to be a shining pioneer, lead innovator
-          and tangible impact driven player in the realty industry. The long term
-          goal is to be a shining beacon in the industry and later become an
-          undeniable force to reckon in South India&apos;s real estate market.
-        </p>
-
-        <p className={styles.body + " reveal-text"}>
-          We aspire to be the go to brand that will help land/homebuyers rely on
-          for all their housing needs. We will achieve this with optimal ground
-          presence, carefully curated land banks, secure investments and
-          intelligently harness the power of leading edge technology to cater to
-          micro needs of homebuyers.
-        </p>
+          <div><span className={styles.brandName}>WALL STORI</span><span className={styles.brandSub}>DEVELOPERS</span></div>
+        </motion.div>
+        <WordReveal text="Wall Stori aspires and promises to be a shining pioneer, lead innovator and tangible impact driven player in the realty industry. The long term goal is to be a shining beacon in the industry and later become an undeniable force to reckon in South India's real estate market." className={styles.body} />
+        <WordReveal text="We aspire to be the go to brand that will help land and homebuyers rely on for all their housing needs. We will achieve this with optimal ground presence, carefully curated land banks, secure investments and intelligently harness the power of leading edge technology to cater to micro needs of homebuyers." className={styles.body} />
+        <motion.div className={styles.statsRow} initial={{ opacity: 0, y: 24 }} animate={textInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.6 }}>
+          {[{ val: "South", label: "India Focus" }, { val: "100%", label: "Transparency" }, { val: "New-Gen", label: "Homebuyers" }].map((stat) => (
+            <div key={stat.label} className={styles.stat}><span className={styles.statVal}>{stat.val}</span><span className={styles.statLabel}>{stat.label}</span></div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

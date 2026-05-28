@@ -1,84 +1,128 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
-import LogoBlocks from "./LogoBlocks";
+import { useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
+import { Satisfy } from "next/font/google";
 import styles from "./Hero.module.css";
+import LogoBlocks from "./LogoBlocks";
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
-    },
-  },
-};
 
-const itemVariants: Variants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: [0.16, 1, 0.3, 1] as const,
-    },
-  },
-};
+const satisfy = Satisfy({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
 
 export default function Hero() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll();
+
+  // ---------- SCROLL PARALLAX ----------
+  // Content: moves up slightly + fades out slowly on scroll
+  const contentY = useTransform(scrollYProgress, [0, 0.5], [0, -60]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+
+  // Blueprint: slides up slightly slower for depth
+  const blueprintScrollY = useTransform(scrollYProgress, [0, 0.5], [0, -80]);
+
+  // ---------- MOUSE PARALLAX ----------
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 60, damping: 25 });
+  const springY = useSpring(mouseY, { stiffness: 60, damping: 25 });
+
+  // Mouse depth movements
+  const contentMouseX = useTransform(springX, [-1, 1], [-8, 8]);
+  const contentMouseY = useTransform(springY, [-1, 1], [-6, 6]);
+  const blueprintMouseX = useTransform(springX, [-1, 1], [-20, 20]);
+  const blueprintMouseY = useTransform(springY, [-1, 1], [-12, 12]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    mouseX.set(((e.clientX - rect.left) / rect.width - 0.5) * 2);
+    mouseY.set(((e.clientY - rect.top) / rect.height - 0.5) * 2);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
   return (
-    <section className={styles.hero} id="hero">
-      {/* Wireframe grid overlay */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className={styles.wireframe} 
-        aria-hidden="true" 
-      />
-      <div className={styles.wireframeFade} aria-hidden="true" />
+    <section
+      className={styles.hero}
+      id="hero"
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Pristine Light Grid Overlay (Subtle) */}
+      <div className={styles.gridOverlay} aria-hidden="true" />
 
-      <motion.div 
-        className={styles.content}
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
+
+
+      {/* Blueprint Image on the Right */}
+      <motion.div
+        className={styles.blueprintContainer}
+        style={{
+          x: blueprintMouseX,
+          y: blueprintMouseY,
+          y: blueprintScrollY,
+        }}
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
       >
-        <motion.div variants={itemVariants}>
-          <LogoBlocks variant="hero" />
-        </motion.div>
+        <img
+          src="/images/banner.png"
+          alt="Luxury Architectural Blueprint"
+          className={styles.blueprintImage}
+        />
+      </motion.div>
 
-        <motion.div className={styles.brandBlock} variants={itemVariants}>
-          <span className={styles.brandName}>WALL STORI</span>
-          <span className={styles.brandSub}>DEVELOPERS</span>
-        </motion.div>
+      {/* Foreground Content on the Left */}
+      <motion.div
+        className={styles.content}
+        style={{
+          x: contentMouseX,
+          y: contentMouseY,
+          y: contentY,
+          opacity: contentOpacity,
+        }}
+      >
+        {/* Wall Stori script branding */}
+        <LogoBlocks variant="hero" />
 
-        <motion.div className={styles.divider} variants={itemVariants} />
-
-        <motion.p className={styles.tagline} variants={itemVariants}>
+        {/* Subtitle paragraph */}
+        <motion.p
+          className={styles.tagline}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 0.85, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+        >
           Pioneering South India&apos;s real estate terrain with vision,
-          innovation, and an indelible mark in the housing category.
+          innovation, and an indelible mark in the housing category
         </motion.p>
 
-        <motion.div className={styles.actions} variants={itemVariants}>
-          <a href="#about" className={styles.btnPrimary}>Discover More</a>
-          <a href="#contact" className={styles.btnGhost}>Get In Touch</a>
-        </motion.div>
+        {/* Action Buttons */}
+        {/* <motion.div
+          className={styles.actions}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
+        >
+          <a href="#about" className={styles.btnDiscover}>
+            Discover more
+          </a>
+          <a href="#contact" className={styles.btnGetInTouchHero}>
+            Get in Touch
+          </a>
+        </motion.div> */}
       </motion.div>
 
-      {/* Scroll cue */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className={styles.scrollCue} 
-        aria-hidden="true"
-      >
-        <span className={styles.scrollLine} />
-        <span className={styles.scrollLabel}>Scroll</span>
-      </motion.div>
+      {/* Luxury Subtle Grain texture overlay */}
+      <div className={styles.grainOverlay} aria-hidden="true" />
     </section>
   );
 }

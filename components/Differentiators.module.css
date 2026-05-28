@@ -1,76 +1,118 @@
 .section {
   background: var(--cream);
-  padding: 100px 8%;
+  padding: 120px 8%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background pattern */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(28,43,74,0.03) 80px),
+    repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(28,43,74,0.03) 80px);
+  pointer-events: none;
 }
 
 /* ── Header ── */
 .header {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  margin-bottom: 60px;
+  gap: 80px;
+  margin-bottom: 72px;
   align-items: start;
+  position: relative;
+  z-index: 1;
 }
 
 .title {
   font-family: var(--font-mono);
-  font-size: clamp(20px, 3vw, 38px);
+  font-size: clamp(20px, 3vw, 40px);
   font-weight: 700;
   color: var(--dark-green);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 
-.headerRight { padding-top: 6px; }
+.headerRight { padding-top: 8px; }
 
 .desc {
   font-family: var(--font-body);
   font-size: clamp(14px, 1.4vw, 16px);
-  line-height: 1.85;
+  line-height: 1.9;
   color: var(--navy);
-  opacity: 0.8;
   font-weight: 300;
 }
 
-/* ── 6-column grid ── */
+/* ── Bento grid ── */
 .grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 1px;
-  background-color: rgba(255, 255, 255, 0.08);
+  gap: 2px;
+  position: relative;
+  z-index: 1;
 }
 
+/* ── Item card ── */
 .item {
   background: var(--dark-green);
-  padding: 36px 26px 40px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 40px 28px 44px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 32px;
   cursor: default;
-  transition: background 0.25s;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s var(--ease-luxury);
+  transform-origin: center;
+  will-change: transform;
 }
 
-.item:hover { background: #374a38; }
+/* Hover background removed – card stays var(--dark-green) */
+.item:hover {
+  /* No background change */
+}
+
+/* Border trace effect */
+.borderTrace {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--gold);
+  pointer-events: none;
+}
+
+/* Card glow */
+.cardGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(201, 168, 76, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
 
 .num {
   font-family: var(--font-display);
-  font-size: clamp(36px, 4vw, 52px);
+  font-size: clamp(40px, 4.5vw, 60px);
   font-weight: 400;
   color: var(--gold);
   line-height: 1;
-  opacity: 0.92;
+  opacity: 0.9;
+  display: block;
+  will-change: transform;
 }
 
 .name {
   font-family: var(--font-mono);
-  font-size: clamp(9px, 0.85vw, 11px);
+  font-size: clamp(9px, 0.9vw, 11px);
   font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 0.12em;
+  color: rgba(201, 168, 76, 0.8);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  line-height: 1.6;
+  line-height: 1.65;
+  display: block;
+  will-change: transform;
 }
 
 /* ── RESPONSIVE ─────────────────────────────────────── */
@@ -79,10 +121,18 @@
 }
 
 @media (max-width: 900px) {
-  .header { grid-template-columns: 1fr; gap: 24px; }
+  .header { grid-template-columns: 1fr; gap: 28px; }
   .grid   { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 600px) {
   .grid { grid-template-columns: repeat(2, 1fr); }
+  .item { padding: 28px 20px 32px; gap: 20px; }
+}
+.ambientGrid {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 45px, rgba(201,168,76,0.2) 45px, rgba(201,168,76,0.2) 47px);
+  pointer-events: none;
+  will-change: opacity;
 }

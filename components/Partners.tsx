@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import styles from "./Partners.module.css";
 
 const PARTNERS = [
@@ -36,16 +40,49 @@ const PARTNERS = [
   },
 ];
 
+// Variants for card entrance animation
+const cardVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.12,
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+};
+
 export default function Partners() {
+  const sectionRef = useRef(null);
+  const inView = useInView(sectionRef, { once: true, margin: "-10%" });
+
   return (
-    <section className={styles.section} id="partners">
-      <h2 className={styles.title}>
+    <section className={styles.section} id="partners" ref={sectionRef}>
+      <motion.h2
+        className={styles.title}
+        initial={{ opacity: 0, x: -30 }}
+        animate={inView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      >
         Strategic<br />Partners
-      </h2>
+      </motion.h2>
 
       <div className={styles.grid}>
-        {PARTNERS.map((p) => (
-          <div key={p.firm} className={styles.card}>
+        {PARTNERS.map((p, idx) => (
+          <motion.div
+            key={p.firm}
+            className={styles.card}
+            variants={cardVariants}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+            custom={idx}
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+          >
+            {/* Decorative dot pattern (unique card element) */}
+            <div className={styles.cardDecor} aria-hidden="true" />
+
             <span className={styles.type}>{p.type}</span>
             <h3 className={styles.firm}>{p.firm}</h3>
 
@@ -66,7 +103,10 @@ export default function Partners() {
             >
               {p.url}
             </a>
-          </div>
+
+            {/* Animated shine overlay (unique hover effect) */}
+            <div className={styles.shine} />
+          </motion.div>
         ))}
       </div>
     </section>

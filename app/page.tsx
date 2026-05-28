@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import SectionDotNav from "@/components/SectionDotNav";
 import Hero from "@/components/Hero";
 import Vision from "@/components/Vision";
 import About from "@/components/About";
@@ -13,7 +14,8 @@ import ScrollRevealProvider from "@/components/ScrollRevealProvider";
 export default function Home() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
+      <SectionDotNav />
       <ScrollRevealProvider />
       <main>
         <Hero />
