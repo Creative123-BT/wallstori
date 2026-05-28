@@ -46,11 +46,11 @@ export default function About() {
         </motion.div>
         <WordReveal text="Wall Stori aspires and promises to be a shining pioneer, lead innovator and tangible impact driven player in the realty industry. The long term goal is to be a shining beacon in the industry and later become an undeniable force to reckon in South India's real estate market." className={styles.body} />
         <WordReveal text="We aspire to be the go to brand that will help land and homebuyers rely on for all their housing needs. We will achieve this with optimal ground presence, carefully curated land banks, secure investments and intelligently harness the power of leading edge technology to cater to micro needs of homebuyers." className={styles.body} />
-        <motion.div className={styles.statsRow} initial={{ opacity: 0, y: 24 }} animate={textInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.6 }}>
+        {/* <motion.div className={styles.statsRow} initial={{ opacity: 0, y: 24 }} animate={textInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.6 }}>
           {[{ val: "South", label: "India Focus" }, { val: "100%", label: "Transparency" }, { val: "New-Gen", label: "Homebuyers" }].map((stat) => (
             <div key={stat.label} className={styles.stat}><span className={styles.statVal}>{stat.val}</span><span className={styles.statLabel}>{stat.label}</span></div>
           ))}
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -5,12 +5,20 @@ import { motion, useMotionValue, useSpring, useTransform, useInView } from "fram
 import styles from "./Differentiators.module.css";
 
 const ITEMS = [
-  { num: "01", name: "Innovation\nDesign" },
-  { num: "02", name: "Quality\nAssurance" },
-  { num: "03", name: "Customer\nExperience" },
-  { num: "04", name: "Sustainable\nBuilding" }
+  { num: "1", name: "Far Sighted\nLeadership" },
+  { num: "2", name: "Strong Customer\nSupport Teams" },
+  { num: "3", name: "Local Market\nInsights" },
+  { num: "4", name: "Need Gap\nAnalysis" },
+  { num: "5", name: "Buyer Sentiment\nIntelligence" },
+  { num: "6", name: "Value Based\nSegmentation" },
+  { num: "7", name: "Competitive\nPricing" },
+  { num: "8", name: "Financial\nOutlays" },
+  { num: "9", name: "Category Pain\nPoint Solutions" },
+  { num: "10", name: "Technology\nNous" },
+  { num: "11", name: "Legal Clearance\nNorms" },
+  { num: "12", name: "Growth Potential\nPatterns" },
+  { num: "13", name: "Investment\nPay-off Potential" },
 ];
-
 function DiffCard({ item, index }: { item: typeof ITEMS[0]; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);

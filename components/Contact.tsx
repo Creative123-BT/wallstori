@@ -56,7 +56,7 @@ export default function Contact() {
           <p className={styles.companyName}>WALL STORI DEVELOPERS PVT. LTD.,</p><div className={styles.addressDivider} />
           <p className={styles.addressLines}>3B-120, WeWork Olympia Cyberspace,<br />SIDCO Industrial Estate, Guindy,<br />Chennai-600 032.</p>
           <p className={styles.email}>E: subramani.n@wallstori.in</p><p className={styles.phone}>CALL: 72007 00077</p>
-          <a href="https://www.wallstori.in" className={styles.website} target="_blank" rel="noopener noreferrer">www.wallstori.in ↗</a>
+          {/* <a href="https://www.wallstori.in" className={styles.website} target="_blank" rel="noopener noreferrer">www.wallstori.in ↗</a> */}
         </motion.div>
 
         <motion.div className={styles.formBlock} initial={{ opacity: 0, x: 40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 1, delay: 0.2 }}>

@@ -37,6 +37,25 @@ export default function Hero() {
   const blueprintMouseX = useTransform(springX, [-1, 1], [-20, 20]);
   const blueprintMouseY = useTransform(springY, [-1, 1], [-12, 12]);
 
+  // ---------- COMBINED PARALLAX Y ----------
+  const combinedBlueprintY = useTransform(
+    [springY, scrollYProgress],
+    ([latestSpringY, latestScrollY]: number[]) => {
+      const mouseYVal = latestSpringY * 12;
+      const scrollYVal = latestScrollY <= 0.5 ? (latestScrollY / 0.5) * -80 : -80;
+      return mouseYVal + scrollYVal;
+    }
+  );
+
+  const combinedContentY = useTransform(
+    [springY, scrollYProgress],
+    ([latestSpringY, latestScroll]: number[]) => {
+      const mouseYVal = latestSpringY * 6;
+      const scrollYVal = latestScroll <= 0.5 ? (latestScroll / 0.5) * -60 : -60;
+      return mouseYVal + scrollYVal;
+    }
+  );
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = containerRef.current?.getBoundingClientRect();
     if (!rect) return;
@@ -67,8 +86,7 @@ export default function Hero() {
         className={styles.blueprintContainer}
         style={{
           x: blueprintMouseX,
-          y: blueprintMouseY,
-          y: blueprintScrollY,
+          y: combinedBlueprintY,
         }}
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -86,8 +104,7 @@ export default function Hero() {
         className={styles.content}
         style={{
           x: contentMouseX,
-          y: contentMouseY,
-          y: contentY,
+          y: combinedContentY,
           opacity: contentOpacity,
         }}
       >
