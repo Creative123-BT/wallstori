@@ -106,7 +106,7 @@ export default function Hero() {
         </motion.p>
 
         {/* Action Buttons */}
-        {/* <motion.div
+        <motion.div
           className={styles.actions}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ export default function Hero() {
           <a href="#contact" className={styles.btnGetInTouchHero}>
             Get in Touch
           </a>
-        </motion.div> */}
+        </motion.div>
       </motion.div>
 
       {/* Luxury Subtle Grain texture overlay */}
