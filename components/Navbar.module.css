@@ -107,7 +107,7 @@
 }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .navbar {
     top: 16px;
     padding: 6px 16px;
