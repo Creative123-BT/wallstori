@@ -1,208 +1,282 @@
-.section {
-  background: var(--slate);
-  padding: 100px 8%;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ── Block 1: Split Layout ── */
+.splitBlock {
+  display: flex;
+  min-height: 90vh;
+}
+
+.splitLeft {
+  flex: 1;
+  position: relative;
+}
+
+.coverImg {
+  object-fit: cover;
+  object-position: center;
+}
+
+.splitRight {
+  flex: 1;
+  background-color: #bacac6;
+  /* Muted teal/sage from design */
+  padding: 100px 6%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titleWrapper {
+  margin-bottom: 50px;
+  display: inline-block;
+  width: fit-content;
 }
 
 .title {
-  font-family: var(--font-mono);
-  font-size: clamp(32px, 6vw, 72px);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 500;
+  color: var(--purple);
+  line-height: 0.8;
+  letter-spacing: 1px;
+}
+
+.line {
+  width: 100%;
+  height: 1.2px;
+  background-color: var(--purple);
+  margin: 6px 0 10px;
+}
+
+.partnerInfo {
+  max-width: 600px;
+}
+
+.roleTitle {
+  font-family: var(--font-body);
+  font-size: 14px;
   color: var(--purple);
   text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 1.0;
-  margin-bottom: 72px;
+  margin-bottom: 4px;
+  letter-spacing: 1.3px;
+  font-weight: 400;
 }
 
-/* ── 3-column grid ── */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.38);
-  padding: 44px 36px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  transition: transform 0.3s, background 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.type {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.35em;
+.firmName {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
   color: var(--purple);
-  text-transform: uppercase;
-  border-bottom: 1px solid var(--purple);
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  display: block;
-  opacity: 0.9;
+  margin-bottom: 40px;
+
 }
 
-.firm {
-  font-family: var(--font-mono);
-  font-size: clamp(13px, 1.4vw, 17px);
-  font-weight: 700;
-  color: var(--navy);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 20px;
-  line-height: 1.3;
-}
-
-.person {
-  margin-bottom: 12px;
+.personBlock {
+  margin-bottom: 30px;
 }
 
 .personRole {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  color: var(--navy);
-  opacity: 0.5;
-  text-transform: uppercase;
-  margin-bottom: 3px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--purple);
+  font-weight: 400;
 }
 
 .personName {
-  font-family: var(--font-display);
-  font-size: clamp(14px, 1.3vw, 17px);
-  font-weight: 600;
-  color: var(--navy);
-  line-height: 1.3;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 25px;
+  margin-top: 6px;
 }
 
 .desc {
   font-family: var(--font-body);
-  font-size: clamp(13px, 1.2vw, 15px);
-  line-height: 1.8;
-  color: var(--navy);
-  opacity: 0.72;
-  font-weight: 300;
-  margin-top: 18px;
-  flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--purple);
+  font-weight: 400;
 }
 
-.url {
+.desc p {
+  margin-bottom: 6px;
+}
+
+.linkBtn {
   display: inline-block;
-  margin-top: 26px;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.12em;
+  margin-top: 30px;
+  font-family: var(--font-body);
+  font-size: 14px;
   color: var(--purple);
   border: 1px solid var(--purple);
-  padding: 7px 14px;
-  transition: background 0.2s, color 0.2s;
-  align-self: flex-start;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
-.url:hover {
-  background: var(--purple);
+.linkBtn:hover {
+  background-color: var(--purple);
   color: #fff;
 }
 
-/* ── RESPONSIVE ─────────────────────────────────────── */
-@media (max-width: 1024px) {
-  .grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 680px) {
-  .grid { grid-template-columns: 1fr; }
-}
-
-
-/* newcss */
-/* Existing styles remain exactly as you provided – keep them */
-/* Then add the following new rules at the end */
-
-/* ── Unique card design additions ── */
-
-.card {
+/* ── Block 2: Full Width Layout ── */
+.fullBlock {
   position: relative;
-  overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+  background-color: var(--cream);
+  min-height: 100vh;
+  padding: 100px 8%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Decorative dot pattern (unique) */
-.cardDecor {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background-image: radial-gradient(var(--purple) 1.2px, transparent 1.2px);
-  background-size: 10px 10px;
-  opacity: 0.12;
-  pointer-events: none;
-  transition: opacity 0.3s;
-}
-
-.card:hover .cardDecor {
-  opacity: 0.22;
-}
-
-/* Diagonal shine animation on hover */
-.shine {
+.wireframeBg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    115deg,
-    transparent 0%,
-    transparent 40%,
-    rgba(255, 255, 255, 0.3) 50%,
-    transparent 60%,
-    transparent 100%
-  );
-  transform: translateX(-100%);
-  transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
   pointer-events: none;
+  z-index: 0;
 }
 
-.card:hover .shine {
-  transform: translateX(100%);
+.containImg {
+  object-fit: cover;
+  object-position: center;
 }
 
-/* Enhanced hover glow (without changing colors) */
-.card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: radial-gradient(circle at 30% 20%, var(--purple), transparent 80%);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s;
-  pointer-events: none;
+.fullTop {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 80px;
 }
 
-.card:hover::after {
-  opacity: 0.6;
+.titleWrapperAlt {
+  display: inline-block;
+  width: fit-content;
 }
 
-/* Slight background darkening on hover – keeps original color but adds depth */
-.card:hover {
-  background: rgba(255, 255, 255, 0.33);
-  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.12);
+.titleAlt {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 500;
+  color: var(--purple);
+  line-height: 0.7;
+  letter-spacing: 1px;
 }
 
-/* Preserve existing responsive rules – no changes there */
+.lineAlt {
+  width: 100%;
+  height: 1px;
+  background-color: var(--purple);
+  margin: 6px 0 10px;
+}
+
+.fullColumns {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 10%;
+}
+
+.columnLeft,
+.columnRight {
+  flex: 1;
+}
+
+.roleTitleAlt {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--purple);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.firmNameAlt {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: 40px;
+}
+
+.personBlockAlt {
+  margin-bottom: 25px;
+}
+
+.personRoleAlt {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--purple);
+  font-weight: 400;
+}
+
+.personNameAlt {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--purple);
+  margin-top: 4px;
+}
+
+.descAlt {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--purple);
+  margin-bottom: 30px;
+  max-width: 500px;
+  font-weight: 400;
+}
+
+.descAlt p {}
+
+.clientele {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--purple);
+  margin-bottom: 30px;
+  max-width: 500px;
+  font-weight: 400;
+}
+
+.linkBtnAlt {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--purple);
+  border: 1px solid var(--purple);
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 400;
+}
+
+.linkBtnAlt:hover {
+  background-color: var(--purple);
+  color: #fff;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .splitBlock {
+    flex-direction: column;
+  }
+
+  .splitLeft {
+    min-height: 40vh;
+  }
+
+  .fullColumns {
+    flex-direction: column;
+    gap: 60px;
+  }
+}

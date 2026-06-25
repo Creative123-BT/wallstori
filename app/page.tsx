@@ -14,7 +14,7 @@ import ScrollRevealProvider from "@/components/ScrollRevealProvider";
 export default function Home() {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <SectionDotNav />
       <ScrollRevealProvider />
       <main>

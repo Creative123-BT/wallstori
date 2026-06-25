@@ -77,7 +77,7 @@ export default function Hero() {
       onMouseLeave={handleMouseLeave}
     >
       {/* Pristine Light Grid Overlay (Subtle) */}
-      <div className={styles.gridOverlay} aria-hidden="true" />
+      {/* <div className={styles.gridOverlay} aria-hidden="true" /> */}
 
 
 

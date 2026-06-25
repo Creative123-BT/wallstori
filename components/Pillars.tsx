@@ -41,9 +41,9 @@ export default function Pillars() {
   return (
     <section className={styles.section} id="pillars" ref={sectionRef}>
       <motion.div className={styles.intro} ref={introRef} style={{ y: introY, position: "sticky", top: 100 }}>
-        <span className={styles.tag}>Our Foundation</span>
-        <h2 className={styles.title}>Our <span className={styles.numCircle}>4</span> Concrete<br />Pillars That<br />Delight Homebuyers</h2>
-        <p className={styles.sub}>We diligently concentrate on the most sought after missing ingredients in the realty market</p>
+        {/* <span className={styles.tag}>Our Foundation</span> */}
+        <h2 className={styles.title}>Our <span className={styles.numCircle}>4</span> Concrete<br />Pillars <br />That Delight <br /> Homebuyers</h2>
+        <p className={styles.sub}>We diligently concentrate on the most <br /> sought after missing ingredients in <br />the realty market</p>
       </motion.div>
       <div className={styles.grid} ref={cardsRef}>
         {PILLARS.map((p, idx) => (

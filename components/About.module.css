@@ -6,7 +6,7 @@
 
 /* ── Label column ── */
 .labelCol {
-  background: var(--cream);
+  background: #f4f1f1;
   padding: 100px 24px;
   border-right: 1px solid rgba(91, 94, 166, 0.12);
   display: flex;
@@ -17,7 +17,7 @@
 .label {
   font-family: var(--font-display);
   font-size: clamp(36px, 4vw, 56px);
-  font-weight: 400;
+  font-weight: 500;
   color: var(--navy);
   letter-spacing: -0.02em;
   writing-mode: vertical-rl;
@@ -27,7 +27,7 @@
 
 /* ── Image column ── */
 .imageCol {
-  background-color: #2C3A4A;
+  background-color: #f4f1f1;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -36,33 +36,33 @@
 .imageBg {
   position: absolute;
   inset: 0;
-  background-image: url('/images/about-hero.png');
+  background-image: url('/images/about.png');
   background-size: cover;
   background-position: center;
-  filter: brightness(0.7) contrast(1.1);
+  background-repeat: no-repeat;
 }
 
 .imageOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 30%, rgba(17, 27, 40, 0.75) 100%);
+  /* background: linear-gradient(to bottom, transparent 30%, rgba(17, 27, 40, 0.75) 100%); */
 }
 
 .imageCaption {
   position: absolute;
-  bottom: 72px;
+  bottom: 252px;
   left: 44px;
   right: 44px;
   font-family: var(--font-mono);
-  font-size: clamp(12px, 1.3vw, 15px);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.7;
-  letter-spacing: 0.06em;
+  font-size: clamp(12px, 1.5vw, 18px);
+  font-weight: 400;
+  color: #f4f1f1;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   padding-left: 7px;
   z-index: 2;
-  border-left: 5px solid #5c5fa6;
+  border-left: 5px solid #665da6;
 }
 
 /* ── Text column ── */
@@ -102,11 +102,10 @@
 }
 
 .body {
-  font-size: clamp(14px, 1.4vw, 17px);
-  line-height: 1.9;
+  font-size: clamp(14px, 1.4vw, 18px);
+  line-height: 1.5;
   color: var(--navy);
-  opacity: 0.82;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 /* ── RESPONSIVE ─────────────────────────────────────── */
@@ -143,16 +142,19 @@
     padding: 60px 32px;
   }
 }
+
 .statsRow {
   display: flex;
   gap: 32px;
   margin-top: 32px;
   flex-wrap: wrap;
 }
+
 .stat {
   display: flex;
   flex-direction: column;
 }
+
 .statVal {
   font-family: var(--font-mono);
   font-size: clamp(20px, 3vw, 28px);
@@ -160,6 +162,7 @@
   color: var(--purple);
   line-height: 1;
 }
+
 .statLabel {
   font-family: var(--font-mono);
   font-size: 8px;

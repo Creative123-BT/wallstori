@@ -1,11 +1,11 @@
 .section {
-  min-height: 100vh;
-  background-color: var(--light-blue-bg);
+  min-height: 40vh;
+  background-color: var(--purple);
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 120px 8% 0;
+  padding: 80px 8% 0;
   overflow: hidden;
 }
 
@@ -14,326 +14,93 @@
   position: absolute;
   inset: 0;
   background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255, 255, 255, 0.22) 60px),
-    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255, 255, 255, 0.22) 60px);
+    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255, 255, 255, 0.05) 60px),
+    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255, 255, 255, 0.05) 60px);
   pointer-events: none;
 }
 
 .fade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(184, 205, 216, 0) 0%, rgba(184, 205, 216, 0.6) 100%);
+  background: linear-gradient(180deg, rgba(74, 66, 140, 0) 0%, rgba(74, 66, 140, 0.8) 100%);
   pointer-events: none;
-}
-
-/* Floating orb */
-.orb {
-  position: absolute;
-  top: 10%;
-  right: -10%;
-  width: 40vw;
-  height: 40vw;
-  background: radial-gradient(ellipse, rgba(91, 94, 166, 0.1) 0%, transparent 70%);
-  pointer-events: none;
-  will-change: transform;
 }
 
 /* ── Main inner ── */
 .inner {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 60px;
 }
 
 /* ── Address block ── */
 .companyName {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
-  color: var(--navy);
-  letter-spacing: 0.08em;
-  margin-bottom: 20px;
-  opacity: 0.6;
+  color: var(--coral);
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
 }
 
 .addressDivider {
-  width: 40px;
-  height: 1px;
-  background: var(--navy);
-  opacity: 0.2;
-  margin-bottom: 20px;
+  width: 60px;
+  height: 2px;
+  background: var(--coral);
+  margin: 0 auto 24px;
 }
 
 .addressLines {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.8;
-  color: var(--navy);
-  opacity: 0.72;
+  color: #ffffff;
+  opacity: 0.8;
   font-weight: 300;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
 }
 
 .email {
   font-family: var(--font-body);
-  font-size: 14px;
-  color: var(--navy);
-  opacity: 0.6;
-  margin-bottom: 36px;
+  font-size: 16px;
+  color: #ffffff;
+  opacity: 0.8;
+  margin-bottom: 16px;
 }
 
 .phone {
   font-family: var(--font-mono);
-  font-size: clamp(10px, 1.8vw, 16px);
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 700;
-  color: var(--navy);
+  color: var(--coral);
   letter-spacing: 0.06em;
-  margin-bottom: 20px;
   cursor: default;
-  transition: letter-spacing 0.4s var(--ease-luxury);
-}
-
-.website {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: var(--purple);
-  opacity: 0.85;
-  transition: opacity 0.2s, letter-spacing 0.3s;
-}
-
-.website:hover {
-  opacity: 1;
-  letter-spacing: 0.15em;
-}
-
-/* ── Form block ── */
-.formBlock {
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 48px 44px;
-  box-shadow: 0 8px 40px rgba(28, 43, 74, 0.06);
-}
-
-.formTitle {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--navy);
-  margin-bottom: 36px;
-  opacity: 0.7;
-}
-
-.formGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-/* ── Floating label fields ── */
-.fieldWrap {
-  position: relative;
-  margin-bottom: 24px;
-}
-
-.input {
-  width: 100%;
-  padding: 20px 0 10px;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(28, 43, 74, 0.2);
-  font-family: var(--font-body);
-  font-size: 15px;
-  color: var(--navy);
-  outline: none;
-  resize: none;
-  transition: border-color 0.3s;
-}
-
-.textarea {
-  width: 100%;
-  padding: 20px 0 10px;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(28, 43, 74, 0.2);
-  font-family: var(--font-body);
-  font-size: 15px;
-  color: var(--navy);
-  outline: none;
-  margin-bottom: -5px;
-  resize: none;
-  transition: border-color 0.3s;
-}
-
-.input:focus {
-  border-color: rgba(28, 43, 74, 0.4);
-}
-
-.textarea:focus {
-  margin-bottom: -5px !important;
-  border-color: rgba(28, 43, 74, 0.4);
-}
-
-.floatLabel {
-  position: absolute;
-  top: 18px;
-  left: 0;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--navy);
-  opacity: 0.45;
-  pointer-events: none;
-  transition: top 0.35s var(--ease-luxury), font-size 0.35s var(--ease-luxury), opacity 0.35s;
-}
-
-.floatLabelActive {
-  top: 2px;
-  font-size: 9px;
-  opacity: 0.6;
-  letter-spacing: 0.16em;
-}
-
-.fieldLine {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1.5px;
-  background: var(--purple);
-  transform-origin: left;
-}
-
-/* ── Submit ── */
-.submit {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 16px 36px;
-  background: var(--navy);
-  color: #fff;
-  border: 2px solid var(--navy);
-  cursor: none;
-  align-self: flex-start;
-  margin-top: 8px;
-  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-
-.submit:hover {
-  background: var(--purple);
-  border-color: var(--purple);
-  box-shadow: 0 12px 32px rgba(91, 94, 166, 0.25);
-}
-
-.submit:disabled {
-  opacity: 0.6;
-}
-
-/* ── Success state ── */
-.successState {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.successIcon {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--dark-green);
-  color: var(--lime);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.successText {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  color: var(--navy);
-  opacity: 0.7;
 }
 
 /* ── Footer strip ── */
 .footer {
   position: relative;
   z-index: 2;
-  border-top: 1px solid rgba(28, 43, 74, 0.12);
-  padding: 22px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 0;
+  text-align: center;
 }
 
 .copy {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: var(--navy);
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
   opacity: 0.4;
 }
 
 /* ── RESPONSIVE ─────────────────────────────────────── */
 @media (max-width: 900px) {
   .inner {
-    grid-template-columns: 1fr;
-    gap: 50px;
+    padding-bottom: 40px;
   }
-
-  .formBlock {
-    padding: 36px 28px;
-  }
-}
-
-/* New message button inside success state */
-.newMessageBtn {
-  background: transparent;
-  border: 1px solid rgba(28, 43, 74, 0.2);
-  font-family: var(--font-mono);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  margin-top: 24px;
-  color: var(--navy);
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.newMessageBtn:hover {
-  border-color: var(--purple);
-  color: var(--purple);
-  letter-spacing: 0.15em;
-}
-
-.floatingBlob {
-  position: absolute;
-  bottom: -20%;
-  left: -10%;
-  width: 45vw;
-  height: 45vw;
-  background: radial-gradient(circle, var(--purple) 0%, transparent 70%);
-  opacity: 0.06;
-  filter: blur(70px);
-  pointer-events: none;
-  z-index: 0;
 }

@@ -1,38 +1,27 @@
-.blocks {
+.logoContainer {
   display: flex;
-  align-items: flex-end;
-  gap: 2px;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
-.block {
-  display: block;
-  border-radius: 1px;
+.logoImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
-/* Colors */
-.lime   { background-color: var(--lime); }
-.purple { background-color: var(--purple); }
-.coral  { background-color: var(--coral); }
-.orange { background-color: var(--orange); }
-
 /* ── nav variant ─── */
-.nav .block { width: 9px; }
-.nav .lime   { height: 22px; }
-.nav .purple { height: 30px; }
-.nav .coral  { height: 18px; }
-.nav .orange { height: 26px; }
+.nav {
+  width: 60px;
+}
 
 /* ── hero variant ─── */
-.hero .block { width: 16px; border-radius: 2px; }
-.hero .lime   { height: 44px; }
-.hero .purple { height: 60px; }
-.hero .coral  { height: 36px; }
-.hero .orange { height: 52px; }
+.hero {
+  width: 60%;
+}
 
 /* ── mini variant ─── */
-.mini .block { width: 10px; }
-.mini .lime   { height: 26px; }
-.mini .purple { height: 34px; }
-.mini .coral  { height: 21px; }
-.mini .orange { height: 30px; }
+.mini {
+  width: 46px;
+}

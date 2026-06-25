@@ -9,23 +9,18 @@
 
 :root {
   /* Brand Colors */
-  --navy:          #1C2B4A;
-  --purple:        #5B5EA6;
-  --coral:         #E85D6F;
-  --lime:          #C8D44E;
-  --gold:          #C9A84C;
-  --orange:        #E8873A;
-  --dark-green:    #2C3E2D;
-  --light-blue-bg: #B8CDD8;
-  --pink-bg:       #F9EEF0;
-  --cream:         #F5F0EA;
-  --off-white:     #FDFAF6;
-  --slate:         #B0BEC0;
+  --navy: #44525c;
+  --purple: #665da6;
+  --coral: #ec617d;
+  --lime: #d4df7f;
+  --orange: #f9ae24;
+  --cream: #f4f1f1;
+  --cement: #808e87;
 
   /* Typography */
-  --font-display: var(--font-apollo-local), serif;
-  --font-body:    var(--font-apollo-local), sans-serif;
-  --font-mono:    var(--font-apollo-local), monospace;
+  --font-display: "quiche-sans", sans-serif;
+  --font-body: "quiche-sans", sans-serif;
+  --font-mono: "quiche-sans", sans-serif;
 
   /* Motion easing */
   --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
@@ -40,6 +35,8 @@ html {
 
 body {
   font-family: var(--font-body);
+  font-weight: 100;
+  font-style: normal;
   background-color: var(--off-white);
   color: var(--navy);
   overflow-x: hidden;
@@ -135,47 +132,109 @@ html.lenis {
 
 /* ─── KEYFRAMES ─────────────────────────────────────────────────────── */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-48px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideInRight {
-  from { opacity: 0; transform: translateX(48px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes scaleIn {
-  from { opacity: 0; transform: scaleX(0); }
-  to   { opacity: 1; transform: scaleX(1); }
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33%       { transform: translateY(-12px) rotate(1deg); }
-  66%       { transform: translateY(-6px) rotate(-0.5deg); }
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+
+  66% {
+    transform: translateY(-6px) rotate(-0.5deg);
+  }
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes borderTrace {
-  0%   { clip-path: inset(0 100% 100% 0); }
-  25%  { clip-path: inset(0 0 100% 0); }
-  50%  { clip-path: inset(0 0 0 0); }
-  75%  { clip-path: inset(100% 0 0 0); }
-  100% { clip-path: inset(0 100% 100% 0); }
+  0% {
+    clip-path: inset(0 100% 100% 0);
+  }
+
+  25% {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+
+  75% {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  100% {
+    clip-path: inset(0 100% 100% 0);
+  }
 }
 
 /* ─── SCROLL REVEAL ─────────────────────────────────────────────────── */
@@ -224,17 +283,41 @@ html.lenis {
 }
 
 /* Stagger delays */
-.delay-1  { transition-delay: 0.08s; }
-.delay-2  { transition-delay: 0.16s; }
-.delay-3  { transition-delay: 0.24s; }
-.delay-4  { transition-delay: 0.32s; }
-.delay-5  { transition-delay: 0.40s; }
-.delay-6  { transition-delay: 0.48s; }
-.delay-7  { transition-delay: 0.56s; }
-.delay-8  { transition-delay: 0.64s; }
+.delay-1 {
+  transition-delay: 0.08s;
+}
+
+.delay-2 {
+  transition-delay: 0.16s;
+}
+
+.delay-3 {
+  transition-delay: 0.24s;
+}
+
+.delay-4 {
+  transition-delay: 0.32s;
+}
+
+.delay-5 {
+  transition-delay: 0.40s;
+}
+
+.delay-6 {
+  transition-delay: 0.48s;
+}
+
+.delay-7 {
+  transition-delay: 0.56s;
+}
+
+.delay-8 {
+  transition-delay: 0.64s;
+}
 
 /* ─── REDUCED MOTION ────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
