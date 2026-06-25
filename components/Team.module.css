@@ -173,9 +173,29 @@
 
   .bottomMiddle {
     border-left: none;
-    border-top: 1px solid var(--coral);
+    /* border-top: 1px solid var(--coral); */
     padding-left: 0;
     padding-top: 30px;
     padding-bottom: 40px;
+  }
+
+  .imageContainer {
+    height: 70px !important;
+    width: 1000px;
+  }
+}
+
+@media (max-width: 480px) {
+  .imageContainer {
+    width: 500px;
+    margin-left: -90px;
+  }
+
+  .topRow::after {
+    display: none;
+  }
+
+  .bottomMiddle {
+    padding-bottom: 0 !important;
   }
 }

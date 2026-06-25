@@ -36,7 +36,7 @@ export default function About() {
       </div>
       <div className={styles.imageCol}>
         <motion.div className={styles.imageBg} style={{ y: imageY, scale: imageScale }} />
-        <div className={styles.imageOverlay} />
+        {/* <div className={styles.imageOverlay} /> */}
         <motion.p className={styles.imageCaption} initial={{ opacity: 0, x: -30 }} animate={textInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8, delay: 0.4 }}>When it comes to a<br />prime piece of land or<br />an aspirational home<br />who else but us?</motion.p>
       </div>
       <div className={styles.textCol} ref={textRef}>

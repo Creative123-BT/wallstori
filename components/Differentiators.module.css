@@ -147,7 +147,7 @@
 
 @media (max-width: 768px) {
   .item {
-    diasplay: block !important;
+    display: block !important;
   }
 }
 
@@ -162,7 +162,11 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 480px) {
+  .section {
+    padding: 20px !important;
+  }
+
   .item {
     display: block !important;
   }

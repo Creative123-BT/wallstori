@@ -134,12 +134,22 @@
     transform: none !important;
   }
 
+  .imageBg {
+    background-size: contain;
+    background-position: center;
+  }
+
   .imageCol {
-    min-height: 56vw;
+    min-height: 75vw;
   }
 
   .textCol {
-    padding: 60px 32px;
+    padding: 30px 32px;
+  }
+
+  .imageCaption {
+    left: 28%;
+    bottom: 180px;
   }
 }
 
@@ -156,7 +166,7 @@
 }
 
 .statVal {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: clamp(20px, 3vw, 28px);
   font-weight: 700;
   color: var(--purple);
@@ -164,10 +174,31 @@
 }
 
 .statLabel {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 8px;
   letter-spacing: 0.1em;
   color: var(--navy);
   opacity: 0.5;
   margin-top: 4px;
+}
+
+@media (max-width: 480px) {
+  .imageBg {
+    background-size: contain;
+    background-position: center;
+  }
+
+  .imageCaption {
+    left: 20%;
+    bottom: 160px;
+  }
+
+  .textCol {
+    padding: 40px 20px;
+  }
+
+
+  .imageCol {
+    min-height: 100vw;
+  }
 }

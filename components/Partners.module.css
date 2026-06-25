@@ -280,3 +280,10 @@
     gap: 60px;
   }
 }
+
+@media (max-width: 480px) {
+  .containImg {
+    object-fit: contain;
+    top: -31%;
+  }
+}

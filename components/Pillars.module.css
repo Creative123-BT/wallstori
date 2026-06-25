@@ -174,7 +174,15 @@
   }
 
   .intro {
-    padding: 70px 32px;
+    padding: 30px 32px;
+    flex-direction: row;
+    gap: 160px;
+    align-items: center;
+
+  }
+
+  .sub {
+    margin-top: 0px;
   }
 
   .grid {

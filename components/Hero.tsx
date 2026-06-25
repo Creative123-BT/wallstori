@@ -89,6 +89,7 @@ export default function Hero() {
         style={{
           x: blueprintMouseX,
           y: combinedBlueprintY,
+          opacity: contentOpacity,
         }}
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}

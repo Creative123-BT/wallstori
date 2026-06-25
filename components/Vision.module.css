@@ -75,10 +75,26 @@
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.5;
   letter-spacing: 1px;
-  /* max-width: 500px; */
   border: none;
   padding: 0;
   quotes: none;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .inner {
+    gap: 30px;
+    text-align: center;
+  }
+
+  .quote {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+
+  .watermarkImage {
+    object-fit: contain;
+    top: -35% !important;
+  }
 }
 
 /* ── RESPONSIVE ─────────────────────────────────────── */
@@ -100,5 +116,10 @@
 
   .bannerImage {
     max-width: 80%;
+  }
+
+  .watermarkImage {
+    object-fit: contain;
+    top: -20% !important;
   }
 }
