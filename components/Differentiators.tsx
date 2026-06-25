@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform, useInView } from "framer-motion";
 import styles from "./Differentiators.module.css";
+import Image from "next/image";
 
 // 13 items exactly as extracted from your image
 const ITEMS = [
@@ -116,11 +117,12 @@ export default function Differentiators() {
 
       {/* Image container with absolutely positioned cards */}
       <div className={styles.imageOverlayContainer}>
-        <img
+        <Image
           className={styles.backgroundImage}
           src="/images/differentiator-1.jpeg"
           alt="Brand differentiators illustration"
           loading="lazy"
+          fill
         />
         <div className={styles.cardsContainer} style={{ width: "100%", height: "100%" }}>
           {ITEMS.map((item, i) => (

@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
 import { Satisfy } from "next/font/google";
+import Image from "next/image";
 import styles from "./Hero.module.css";
 import LogoBlocks from "./LogoBlocks";
 
@@ -18,6 +19,7 @@ export default function Hero() {
   const { scrollYProgress } = useScroll();
 
   // ---------- SCROLL PARALLAX ----------
+
   // Content: moves up slightly + fades out slowly on scroll
   const contentY = useTransform(scrollYProgress, [0, 0.5], [0, -60]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
@@ -92,11 +94,7 @@ export default function Hero() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
       >
-        <img
-          src="/images/banner.png"
-          alt="Luxury Architectural Blueprint"
-          className={styles.blueprintImage}
-        />
+        <Image src="/images/banner.png" alt="Luxury Architectural Blueprint" className={styles.blueprintImage} fill />
       </motion.div>
 
       {/* Foreground Content on the Left */}
