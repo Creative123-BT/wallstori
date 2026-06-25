@@ -10,9 +10,9 @@ const NAV_LINKS = [
   { label: "Philosophy", href: "#vision" },
   { label: "Profile", href: "#about" },
   { label: "Value Add", href: "#differentiators" },
-  { label: "Process", href: "#team" },
+  { label: "Process", href: "#homebuying" },
   { label: "Pillars", href: "#pillars" },
-  { label: "Leadership", href: "#leadership" },
+  { label: "Leadership", href: "#team" },
   { label: "Partners", href: "#partners" },
   { label: "Connect", href: "#contact" },
 ];
@@ -28,6 +28,16 @@ function NavLink({ label, href }: { label: string; href: string }) {
     x.set((e.clientX - rect.left - rect.width / 2) * 0.2);
   };
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      (target as HTMLElement).scrollIntoView({ behavior: "smooth" });
+    }
+    // Update URL hash without jumping
+    window.history.pushState(null, "", href);
+  };
+
   return (
     <motion.a
       ref={ref}
@@ -36,6 +46,7 @@ function NavLink({ label, href }: { label: string; href: string }) {
       style={{ x: springX }}
       onMouseMove={handleMouseMove}
       onMouseLeave={() => x.set(0)}
+      onClick={handleClick}
     >
       <span className={styles.navLinkText}>{label}</span>
     </motion.a>
@@ -86,7 +97,15 @@ export default function Navbar() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: menuOpen ? 1 : 0, x: menuOpen ? 0 : -20 }}
             transition={{ delay: menuOpen ? i * 0.07 : 0, duration: 0.4 }}
-            onClick={() => setMenuOpen(false)}
+            onClick={(e) => {
+              e.preventDefault();
+              const target = document.querySelector(link.href);
+              if (target) {
+                (target as HTMLElement).scrollIntoView({ behavior: "smooth" });
+              }
+              window.history.pushState(null, "", link.href);
+              setMenuOpen(false);
+            }}
           >
             {link.label}
           </motion.a>
