@@ -62,7 +62,6 @@
   text-transform: uppercase;
   padding-left: 7px;
   z-index: 2;
-  border-left: 5px solid #665da6;
 }
 
 /* ── Text column ── */
@@ -103,7 +102,7 @@
 
 .body {
   font-size: clamp(14px, 1.4vw, 18px);
-  line-height: 1.5;
+  line-height: 1.2;
   color: var(--navy);
   font-weight: 400;
 }

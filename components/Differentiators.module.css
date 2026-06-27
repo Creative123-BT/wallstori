@@ -27,6 +27,7 @@
   line-height: 1.15;
   letter-spacing: 4px;
   text-transform: uppercase;
+  padding-top: 10%;
 }
 
 .headerRight {
@@ -38,14 +39,9 @@
 /* ── Bento grid ── */
 
 
-
 .item {
   padding: 40px 28px 44px;
 }
-
-
-
-
 
 
 /* ── RESPONSIVE ─────────────────────────────────────── */

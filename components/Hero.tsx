@@ -111,7 +111,7 @@ export default function Hero() {
         <LogoBlocks variant="hero" />
 
         {/* Subtitle paragraph */}
-        <motion.p
+        {/* <motion.p
           className={styles.tagline}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 0.85, y: 0 }}
@@ -119,10 +119,10 @@ export default function Hero() {
         >
           Pioneering South India&apos;s real estate terrain with vision,
           innovation, and an indelible mark in the housing category
-        </motion.p>
+        </motion.p> */}
 
         {/* Action Buttons */}
-        <motion.div
+        {/* <motion.div
           className={styles.actions}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -134,7 +134,7 @@ export default function Hero() {
           <a href="#contact" className={styles.btnGetInTouchHero}>
             Get in Touch
           </a>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
 
       {/* Luxury Subtle Grain texture overlay */}

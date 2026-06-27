@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <SectionDotNav />
+      {/* <SectionDotNav /> */}
       <ScrollRevealProvider />
       <main>
         <Hero />

@@ -5,17 +5,36 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import LogoBlocks from "./LogoBlocks";
 import styles from "./About.module.css";
 
-function WordReveal({ text, className }: { text: string; className?: string }) {
+function WordReveal({ lines, className }: { lines: string[]; className?: string }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-15%" });
-  const words = text.split(" ");
+  
+  let globalWordIndex = 0;
+  
   return (
-    <p ref={ref} className={className} style={{ overflow: "hidden" }}>
-      {words.map((word, i) => (
-        <span key={i} style={{ display: "inline-block", overflow: "hidden", marginRight: "0.3em" }}>
-          <motion.span style={{ display: "inline-block" }} initial={{ y: "100%", opacity: 0 }} animate={inView ? { y: "0%", opacity: 1 } : {}} transition={{ duration: 0.7, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}>{word}</motion.span>
-        </span>
-      ))}
+    <p ref={ref} className={className}>
+      {lines.map((line, lineIdx) => {
+        const words = line.split(" ");
+        return (
+          <span key={lineIdx} style={{ display: "block", overflow: "hidden" }}>
+            {words.map((word, i) => {
+              const delayIndex = globalWordIndex++;
+              return (
+                <span key={i} style={{ display: "inline-block", overflow: "hidden", marginRight: "0.3em" }}>
+                  <motion.span
+                    style={{ display: "inline-block" }}
+                    initial={{ y: "100%", opacity: 0 }}
+                    animate={inView ? { y: "0%", opacity: 1 } : {}}
+                    transition={{ duration: 0.7, delay: delayIndex * 0.04, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {word}
+                  </motion.span>
+                </span>
+              );
+            })}
+          </span>
+        );
+      })}
     </p>
   );
 }
@@ -28,6 +47,27 @@ export default function About() {
   const labelY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
   const textRef = useRef(null);
   const textInView = useInView(textRef, { once: true, margin: "-10%" });
+
+  const paragraph1 = [
+    "Wall Stori aspires and promises to be a",
+    "shining pioneer, lead innovator and tangible",
+    "impact driven player in the realty industry.",
+    "The long term goal is to be a shining beacon",
+    "in the industry and later become an",
+    "undeniable force to reckon in South India's",
+    "real estate market."
+  ];
+
+  const paragraph2 = [
+    "We aspire to be the go to brand that will",
+    "help land/homebuyers rely on for all their",
+    "housing needs. We will achieve this with",
+    "optimal ground presence, carefully curated",
+    "land banks, secure investments and",
+    "intelligently harness the power of leading",
+    "edge technology to cater to micro needs of",
+    "homebuyers."
+  ];
 
   return (
     <section className={styles.about} id="about" ref={sectionRef}>
@@ -44,8 +84,8 @@ export default function About() {
           {/* <LogoBlocks variant="mini" /> */}
           {/* <div><span className={styles.brandName}>WALL STORI</span><span className={styles.brandSub}>DEVELOPERS</span></div> */}
         </motion.div>
-        <WordReveal text="Wall Stori aspires and promises to be a  shining pioneer, lead innovator and tangible impact driven player in the realty industry. The long term goal is to be a shining beacon in the industry and later become an undeniable force to reckon in South India's real estate market." className={styles.body} />
-        <WordReveal text="We aspire to be the go to brand that will help land and homebuyers rely on for all their housing needs. We will achieve this with optimal ground presence, carefully curated land banks, secure investments and intelligently harness the power of leading edge technology to cater to micro needs of homebuyers." className={styles.body} />
+        <WordReveal lines={paragraph1} className={styles.body} />
+        <WordReveal lines={paragraph2} className={styles.body} />
         {/* <motion.div className={styles.statsRow} initial={{ opacity: 0, y: 24 }} animate={textInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.6 }}>
           {[{ val: "South", label: "India Focus" }, { val: "100%", label: "Transparency" }, { val: "New-Gen", label: "Homebuyers" }].map((stat) => (
             <div key={stat.label} className={styles.stat}><span className={styles.statVal}>{stat.val}</span><span className={styles.statLabel}>{stat.label}</span></div>

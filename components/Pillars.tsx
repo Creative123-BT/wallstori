@@ -48,7 +48,11 @@ export default function Pillars() {
       <div className={styles.grid} ref={cardsRef}>
         {PILLARS.map((p, idx) => (
           <motion.div key={p.id} className={`${styles.card} ${styles[p.color]}`} initial={{ opacity: 0, y: 60 }} animate={cardsInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}>
-            <div className={styles.divider} /><h3 className={styles.cardTitle}>{p.title}</h3><p className={styles.cardBody}>{p.body}</p>
+            <div className={styles.cardHeader}>
+              <div className={styles.divider} />
+              <h3 className={styles.cardTitle}>{p.title}</h3>
+            </div>
+            <p className={styles.cardBody}>{p.body}</p>
           </motion.div>
         ))}
       </div>

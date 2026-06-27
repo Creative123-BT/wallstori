@@ -69,10 +69,15 @@
   padding: 52px 40px 44px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  gap: 14px;
+  justify-content: space-between;
   min-height: 240px;
   transition: filter 0.25s;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .card:hover {
@@ -107,8 +112,7 @@
 }
 
 .coral .divider {
-  background: var(--purple);
-
+  background: var(--navy);
 }
 
 .lime .divider {
@@ -146,7 +150,7 @@
 
 .coral .cardTitle,
 .coral .cardBody {
-  color: var(--purple);
+  color: var(--navy);
 }
 
 /* Card body */
