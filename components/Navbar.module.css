@@ -11,7 +11,16 @@
   transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-
+.floatingLogo {
+  position: fixed;
+  top: 32px;
+  right: 48px;
+  z-index: 1001;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* ── Nav links ── */
 .navLinks {
@@ -114,10 +123,20 @@
   .mobileMenu {
     display: flex;
   }
+
+  .floatingLogo {
+    top: 24px;
+    right: 32px;
+  }
 }
 
 @media (max-width: 480px) {
   .navbar {
     left: 78%;
+  }
+  
+  .floatingLogo {
+    top: 16px;
+    right: 20px;
   }
 }

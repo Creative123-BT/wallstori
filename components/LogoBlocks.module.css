@@ -23,5 +23,12 @@
 
 /* ── mini variant ─── */
 .mini {
-  width: 46px;
+  width: 186px;
+  /* background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px; */
+  /* background: #9ebbcd; */
 }
