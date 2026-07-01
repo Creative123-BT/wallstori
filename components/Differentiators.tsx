@@ -105,14 +105,14 @@ export default function Differentiators() {
             Go-To Brand With<br />Key Differentiators
           </motion.h2>
         </div>
-        <div className={styles.headerRight}>
+        {/* <div className={styles.headerRight}>
           <motion.p className={styles.desc} initial={{ opacity: 0, y: 20, filter: "blur(6px)" }} animate={headerInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}} transition={{ duration: 0.9, delay: 0.2 }}>
             Homebuyers can rely on our entire gamut of systematic, wide ranging services. Right from our core, tested team of professionals, with decades of industry exposure, real-time market intelligence and property market information nuggets.
           </motion.p>
           <motion.p className={styles.desc} style={{ marginTop: "16px" }} initial={{ opacity: 0, y: 20, filter: "blur(6px)" }} animate={headerInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}} transition={{ duration: 0.9, delay: 0.35 }}>
             We are armed with an enviable track record for delivering the impossible.
           </motion.p>
-        </div>
+        </div> */}
       </div>
 
       {/* Image container with absolutely positioned cards */}

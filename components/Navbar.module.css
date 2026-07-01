@@ -4,7 +4,7 @@
   z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   padding: 16px 60px;
   background: #9ebbcd;
   white-space: nowrap;
@@ -75,7 +75,6 @@
   display: none;
   position: fixed;
   top: 80px;
-  left: -220%;
   transform: translateX(-50%);
   background: rgba(25, 15, 45, 0.96);
   backdrop-filter: blur(20px);
@@ -107,9 +106,7 @@
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .navbar {
-    top: 16px;
-    padding: 6px 16px;
-    left: 88%;
+    padding: 10px 16px;
   }
 
   .navLinks {
@@ -130,13 +127,9 @@
   }
 }
 
-@media (max-width: 480px) {
-  .navbar {
-    left: 78%;
-  }
-  
+@media (max-width: 768px) {
   .floatingLogo {
-    top: 16px;
+    top: -20px;
     right: 20px;
   }
 }

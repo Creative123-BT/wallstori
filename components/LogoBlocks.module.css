@@ -32,3 +32,17 @@
   border-radius: 12px; */
   /* background: #9ebbcd; */
 }
+
+@media (max-width: 768px) {
+  .mini {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mini {
+    width: 100px;
+    height: 100px;
+  }
+}

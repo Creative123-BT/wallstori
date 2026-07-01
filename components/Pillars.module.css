@@ -180,9 +180,10 @@
 
   .intro {
     padding: 30px 32px;
-    flex-direction: row;
-    gap: 160px;
-    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
 
   }
 

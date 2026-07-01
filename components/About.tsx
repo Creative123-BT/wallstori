@@ -8,9 +8,9 @@ import styles from "./About.module.css";
 function WordReveal({ lines, className }: { lines: string[]; className?: string }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-15%" });
-  
+
   let globalWordIndex = 0;
-  
+
   return (
     <p ref={ref} className={className}>
       {lines.map((line, lineIdx) => {
@@ -58,16 +58,16 @@ export default function About() {
     "real estate market."
   ];
 
-  const paragraph2 = [
-    "We aspire to be the go to brand that will",
-    "help land/homebuyers rely on for all their",
-    "housing needs. We will achieve this with",
-    "optimal ground presence, carefully curated",
-    "land banks, secure investments and",
-    "intelligently harness the power of leading",
-    "edge technology to cater to micro needs of",
-    "homebuyers."
-  ];
+  // const paragraph2 = [
+  //   "We aspire to be the go to brand that will",
+  //   "help land/homebuyers rely on for all their",
+  //   "housing needs. We will achieve this with",
+  //   "optimal ground presence, carefully curated",
+  //   "land banks, secure investments and",
+  //   "intelligently harness the power of leading",
+  //   "edge technology to cater to micro needs of",
+  //   "homebuyers."
+  // ];
 
   return (
     <section className={styles.about} id="about" ref={sectionRef}>
@@ -85,7 +85,6 @@ export default function About() {
           {/* <div><span className={styles.brandName}>WALL STORI</span><span className={styles.brandSub}>DEVELOPERS</span></div> */}
         </motion.div>
         <WordReveal lines={paragraph1} className={styles.body} />
-        <WordReveal lines={paragraph2} className={styles.body} />
         {/* <motion.div className={styles.statsRow} initial={{ opacity: 0, y: 24 }} animate={textInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.6 }}>
           {[{ val: "South", label: "India Focus" }, { val: "100%", label: "Transparency" }, { val: "New-Gen", label: "Homebuyers" }].map((stat) => (
             <div key={stat.label} className={styles.stat}><span className={styles.statVal}>{stat.val}</span><span className={styles.statLabel}>{stat.label}</span></div>

@@ -7,14 +7,12 @@ import LogoBlocks from "./LogoBlocks";
 
 const NAV_LINKS = [
 
-  { label: "Philosophy", href: "#vision" },
-  { label: "Profile", href: "#about" },
-  { label: "Value Add", href: "#differentiators" },
-  { label: "Process", href: "#homebuying" },
-  { label: "Pillars", href: "#pillars" },
-  { label: "Leadership", href: "#team" },
+  { label: "About", href: "#about" },
+  { label: "Edge", href: "#differentiators" },
+  { label: "Values", href: "#pillars" },
+  { label: "Core Team", href: "#team" },
   { label: "Partners", href: "#partners" },
-  { label: "Connect", href: "#contact" },
+  { label: "Contact", href: "#contact" },
 ];
 
 function NavLink({ label, href }: { label: string; href: string }) {

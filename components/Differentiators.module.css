@@ -23,7 +23,7 @@
   font-family: var(--font-mono);
   font-size: clamp(20px, 2.7vw, 40px);
   font-weight: 700;
-  color: var(--cement);
+  color: #36473d;
   line-height: 1.15;
   letter-spacing: 4px;
   text-transform: uppercase;
