@@ -129,7 +129,7 @@
   }
 
   .quote {
-    font-size: clamp(.94rem, 3vw, 1.5rem);
+    font-size: clamp(.85rem, 3.2vw, 1.5rem);
   }
 
   .watermarkImage {

@@ -101,3 +101,9 @@
     padding-bottom: 20px;
   }
 }
+
+@media (max-width: 480px) {
+  .addressLines {
+    font-size: 13.5px;
+  }
+}
