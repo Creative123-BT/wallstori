@@ -1,5 +1,5 @@
 .section {
-  min-height: 50vh;
+  min-height: 90vh;
   background-color: #9ebbcd;
   /* Muted sky blue background */
   position: relative;
@@ -21,7 +21,7 @@
 
 .bannerImage {
   object-fit: cover;
-  opacity: .8;
+  opacity: .9;
   filter: brightness(1.2) contrast(1.1);
 }
 
@@ -87,8 +87,7 @@
 .copy {
   font-size: 11px;
   letter-spacing: 0.05em;
-  color: var(--navy);
-  opacity: 0.6;
+  color: #fff;
 }
 
 /* ── RESPONSIVE ─────────────────────────────────────── */

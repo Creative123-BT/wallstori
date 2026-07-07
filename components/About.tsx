@@ -58,17 +58,6 @@ export default function About() {
     "real estate market."
   ];
 
-  // const paragraph2 = [
-  //   "We aspire to be the go to brand that will",
-  //   "help land/homebuyers rely on for all their",
-  //   "housing needs. We will achieve this with",
-  //   "optimal ground presence, carefully curated",
-  //   "land banks, secure investments and",
-  //   "intelligently harness the power of leading",
-  //   "edge technology to cater to micro needs of",
-  //   "homebuyers."
-  // ];
-
   return (
     <section className={styles.about} id="about" ref={sectionRef}>
       <div className={styles.labelCol}>
@@ -76,20 +65,12 @@ export default function About() {
       </div>
       <div className={styles.imageCol}>
         <motion.div className={styles.imageBg} style={{ y: imageY, scale: imageScale }} />
-        {/* <div className={styles.imageOverlay} /> */}
         <motion.p className={styles.imageCaption} initial={{ opacity: 0, x: -30 }} animate={textInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8, delay: 0.4 }}>When it comes to a<br />prime piece of land or<br />an aspirational home<br />who else but us?</motion.p>
       </div>
       <div className={styles.textCol} ref={textRef}>
         <motion.div className={styles.logoLockup} initial={{ opacity: 0, x: 30 }} animate={textInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8 }}>
-          {/* <LogoBlocks variant="mini" /> */}
-          {/* <div><span className={styles.brandName}>WALL STORI</span><span className={styles.brandSub}>DEVELOPERS</span></div> */}
         </motion.div>
         <WordReveal lines={paragraph1} className={styles.body} />
-        {/* <motion.div className={styles.statsRow} initial={{ opacity: 0, y: 24 }} animate={textInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.6 }}>
-          {[{ val: "South", label: "India Focus" }, { val: "100%", label: "Transparency" }, { val: "New-Gen", label: "Homebuyers" }].map((stat) => (
-            <div key={stat.label} className={styles.stat}><span className={styles.statVal}>{stat.val}</span><span className={styles.statLabel}>{stat.label}</span></div>
-          ))}
-        </motion.div> */}
       </div>
     </section>
   );

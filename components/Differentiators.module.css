@@ -1,8 +1,9 @@
 .section {
   background: var(--cream);
-  padding: 120px 8%;
+  padding: 0px 8% 50px;
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 /* Subtle background pattern */
@@ -21,13 +22,13 @@
 
 .title {
   font-family: var(--font-mono);
-  font-size: clamp(20px, 2.7vw, 40px);
+  font-size: clamp(18px, 2.7vw, 33px);
   font-weight: 700;
   color: #36473d;
   line-height: 1.15;
   letter-spacing: 4px;
   text-transform: uppercase;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
 .headerRight {
@@ -40,7 +41,7 @@
 
 
 .item {
-  padding: 40px 28px 44px;
+  padding: 30px 28px 40px;
 }
 
 

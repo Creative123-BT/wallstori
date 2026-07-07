@@ -116,7 +116,6 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://use.typekit.net/gpc2fdq.css" />
       </head>
       <body>
-        <CustomCursor />
         <div className="grain-overlay" aria-hidden="true" />
         <SmoothScrollProvider>
           {children}

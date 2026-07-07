@@ -7,10 +7,10 @@ export default function LogoBlocks({ variant = "nav" }: { variant?: Variant }) {
   return (
     <div className={`${styles.logoContainer} ${styles[variant]}`}>
       <Image
-        src="/images/logo.png"
+        src="/images/new.png"
         alt="Wallstori Logo"
-        width={150}
-        height={150}
+        width={0}
+        height={0}
         className={styles.logoImage}
       />
     </div>

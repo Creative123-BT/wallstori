@@ -1,32 +1,48 @@
-/* ── Floating pill navbar ── */
+/* ── Fixed navbar ── */
 .navbar {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding: 16px 60px;
-  background: #9ebbcd;
+  justify-content: flex-start;
+  padding: 0px 40px;
+  background: transparent;
   white-space: nowrap;
-  transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
 }
 
-.floatingLogo {
-  position: fixed;
-  top: 32px;
-  right: 48px;
-  z-index: 1001;
-  cursor: pointer;
+/* ── Scrolled state ── */
+.scrolled {
+  background: rgba(158, 187, 205, 0.52);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Header logo (inside navbar) ── */
+.headerLogo {
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 0;
+  margin-left: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 /* ── Nav links ── */
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 20px;
 }
 
 .navLink {
@@ -38,17 +54,48 @@
 }
 
 .navLinkText {
+  text-transform: uppercase;
   font-family: var(--font-body);
-  font-size: 17px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   letter-spacing: 0.03em;
-  color: #1a3b68;
+  color: #203463;
   transition: color 0.2s ease;
 }
 
-.navLink:hover .navLinkText {
-  color: var(--navy) !important;
-  border-bottom: 2px solid var(--orange);
+.navLink:nth-child(1):hover .navLinkText {
+  color: var(--purple) !important;
+  border-bottom: 2px solid var(--purple);
+}
+
+.navLink:nth-child(2):hover .navLinkText {
+  color: var(--cream) !important;
+  border-bottom: 2px solid var(--cream);
+}
+
+.navLink:nth-child(3):hover .navLinkText {
+  color: #36473d !important;
+  border-bottom: 2px solid #36473d;
+}
+
+.navLink:nth-child(4):hover .navLinkText {
+  color: var(--lime) !important;
+  border-bottom: 2px solid var(--lime);
+}
+
+.navLink:nth-child(5):hover .navLinkText {
+  color: var(--coral) !important;
+  border-bottom: 2px solid var(--coral);
+}
+
+.navLink:nth-child(6):hover .navLinkText {
+  color: var(--cement) !important;
+  border-bottom: 2px solid var(--cement);
+}
+
+.navLink:nth-child(7):hover .navLinkText {
+  color: var(--purple) !important;
+  border-bottom: 2px solid var(--purple);
 }
 
 /* ── Hamburger (mobile only) ── */
@@ -121,15 +168,13 @@
     display: flex;
   }
 
-  .floatingLogo {
-    top: 24px;
-    right: 32px;
+  .headerLogo {
+    margin-right: auto;
   }
 }
 
 @media (max-width: 768px) {
-  .floatingLogo {
-    top: -20px;
-    right: 20px;
+  .headerLogo {
+    margin-right: auto;
   }
 }

@@ -2,30 +2,13 @@
 
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
-import { Satisfy } from "next/font/google";
 import Image from "next/image";
 import styles from "./Hero.module.css";
 import LogoBlocks from "./LogoBlocks";
 
-
-const satisfy = Satisfy({
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
-
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll();
-
-  // ---------- SCROLL PARALLAX ----------
-
-  // Content: moves up slightly + fades out slowly on scroll
-  const contentY = useTransform(scrollYProgress, [0, 0.5], [0, -60]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
-
-  // Blueprint: slides up slightly slower for depth
-  const blueprintScrollY = useTransform(scrollYProgress, [0, 0.5], [0, -80]);
 
   // ---------- MOUSE PARALLAX ----------
   const mouseX = useMotionValue(0);
@@ -34,10 +17,14 @@ export default function Hero() {
   const springY = useSpring(mouseY, { stiffness: 60, damping: 25 });
 
   // Mouse depth movements
-  const contentMouseX = useTransform(springX, [-1, 1], [-8, 8]);
-  const contentMouseY = useTransform(springY, [-1, 1], [-6, 6]);
   const blueprintMouseX = useTransform(springX, [-1, 1], [-20, 20]);
   const blueprintMouseY = useTransform(springY, [-1, 1], [-12, 12]);
+
+  const logoMouseX = useTransform(springX, [-1, 1], [-10, 10]);
+  const logoMouseY = useTransform(springY, [-1, 1], [-6, 6]);
+
+  const textMouseX = useTransform(springX, [-1, 1], [-5, 5]);
+  const textMouseY = useTransform(springY, [-1, 1], [-3, 3]);
 
   // ---------- COMBINED PARALLAX Y ----------
   const combinedBlueprintY = useTransform(
@@ -45,15 +32,6 @@ export default function Hero() {
     ([latestSpringY, latestScrollY]: number[]) => {
       const mouseYVal = latestSpringY * 12;
       const scrollYVal = latestScrollY <= 0.5 ? (latestScrollY / 0.5) * -80 : -80;
-      return mouseYVal + scrollYVal;
-    }
-  );
-
-  const combinedContentY = useTransform(
-    [springY, scrollYProgress],
-    ([latestSpringY, latestScroll]: number[]) => {
-      const mouseYVal = latestSpringY * 6;
-      const scrollYVal = latestScroll <= 0.5 ? (latestScroll / 0.5) * -60 : -60;
       return mouseYVal + scrollYVal;
     }
   );
@@ -78,67 +56,53 @@ export default function Hero() {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Pristine Light Grid Overlay (Subtle) */}
-      {/* <div className={styles.gridOverlay} aria-hidden="true" /> */}
+      {/* Top Right Text */}
+      <motion.div
+        className={styles.topRightText}
+        style={{
+          x: textMouseX,
+          y: textMouseY,
+        }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      >
+        WE ARE COMMITTED TO<br />
+        CHAMPIONING HOME<br />
+        BUYER DREAMS AND<br />
+        REDEFINING INDUSTRY<br />
+        BENCHMARKS
+      </motion.div>
 
-
-
-      {/* Blueprint Image on the Right */}
+      {/* Blueprint Image Full Screen Background */}
       <motion.div
         className={styles.blueprintContainer}
         style={{
           x: blueprintMouseX,
           y: combinedBlueprintY,
-          opacity: contentOpacity,
         }}
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
       >
-        <Image src="/images/banner.png" alt="Luxury Architectural Blueprint" className={styles.blueprintImage} fill />
+        <Image src="/images/banner.png" alt="Luxury Architectural Blueprint" className={styles.blueprintImage} fill priority />
       </motion.div>
 
-      {/* Foreground Content on the Left */}
+      {/* Center Logo */}
       <motion.div
-        className={styles.content}
+        className={styles.centerLogo}
         style={{
-          x: contentMouseX,
-          y: combinedContentY,
-          opacity: contentOpacity,
+          x: logoMouseX,
+          y: logoMouseY,
         }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.2 }}
       >
-        {/* Wall Stori script branding */}
         <LogoBlocks variant="hero" />
-
-        {/* Subtitle paragraph */}
-        {/* <motion.p
-          className={styles.tagline}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 0.85, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
-        >
-          Pioneering South India&apos;s real estate terrain with vision,
-          innovation, and an indelible mark in the housing category
-        </motion.p> */}
-
-        {/* Action Buttons */}
-        {/* <motion.div
-          className={styles.actions}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
-        >
-          <a href="#about" className={styles.btnDiscover}>
-            Discover more
-          </a>
-          <a href="#contact" className={styles.btnGetInTouchHero}>
-            Get in Touch
-          </a>
-        </motion.div> */}
       </motion.div>
 
-      {/* Luxury Subtle Grain texture overlay */}
-      <div className={styles.grainOverlay} aria-hidden="true" />
+
     </section>
   );
 }

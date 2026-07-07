@@ -6,31 +6,25 @@
 }
 
 .logoImage {
-  width: 100%;
+  width: 90%;
   height: auto;
   object-fit: contain;
 }
 
 /* ── nav variant ─── */
 .nav {
-  width: 60px;
+  width: 180px;
 }
 
 /* ── hero variant ─── */
 .hero {
-  width: 60%;
+  width: 33%;
 }
 
 /* ── mini variant ─── */
 .mini {
   width: 186px;
-  /* background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px; */
-  /* background: #9ebbcd; */
 }
 
 @media (max-width: 768px) {

@@ -18,8 +18,8 @@ export default function Contact() {
 
   return (
     <section className={`${styles.section} ${montserrat.className}`} id="contact" ref={sectionRef}>
-      <motion.div className={styles.wireframe} initial={{ opacity: 0 }} animate={inView ? { opacity: 0.75 } : {}} transition={{ duration: 1.5 }} aria-hidden="true">
-        <Image src="/images/banner.png" alt="Blueprint" fill className={styles.bannerImage} />
+      <motion.div className={styles.wireframe} initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 1.5 }} aria-hidden="true">
+        <Image src="/images/home-buying.png" alt="Blueprint" fill className={styles.bannerImage} />
       </motion.div>
       <div className={styles.inner}>
         <motion.div className={styles.address} initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1 }}>
