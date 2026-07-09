@@ -30,7 +30,14 @@ function NavLink({ label, href }: { label: string; href: string }) {
     e.preventDefault();
     const target = document.querySelector(href);
     if (target) {
-      (target as HTMLElement).scrollIntoView({ behavior: "smooth" });
+      const headerOffset = 80;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
     // Update URL hash without jumping
     window.history.pushState(null, "", href);
@@ -59,9 +66,9 @@ export default function Navbar() {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     // Add scrolled state for background change
-    setScrolled(latest > 50);
+    setScrolled(latest > 20);
     // Show logo after scrolling past hero
-    setShowLogo(latest > 500);
+    setShowLogo(latest > 0);
   });
 
   return (
@@ -132,7 +139,14 @@ export default function Navbar() {
               e.preventDefault();
               const target = document.querySelector(link.href);
               if (target) {
-                (target as HTMLElement).scrollIntoView({ behavior: "smooth" });
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: "smooth"
+                });
               }
               window.history.pushState(null, "", link.href);
               setMenuOpen(false);

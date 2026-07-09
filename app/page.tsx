@@ -18,7 +18,7 @@ export default function Home() {
       {/* <SectionDotNav /> */}
       <ScrollRevealProvider />
       <main>
-        <Hero />
+        {/* <Hero />a */}
         <Vision />
         <About />
         <Differentiators />

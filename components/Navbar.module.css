@@ -56,14 +56,14 @@
 .navLinkText {
   text-transform: uppercase;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.03em;
-  color: #203463;
+  color: #ffffff;
   transition: color 0.2s ease;
 }
 
-.navLink:nth-child(1):hover .navLinkText {
+/* .navLink:nth-child(1):hover .navLinkText {
   color: var(--purple) !important;
   border-bottom: 2px solid var(--purple);
 }
@@ -96,6 +96,9 @@
 .navLink:nth-child(7):hover .navLinkText {
   color: var(--purple) !important;
   border-bottom: 2px solid var(--purple);
+} */
+.navLinkText:hover {
+  color: #203463;
 }
 
 /* ── Hamburger (mobile only) ── */

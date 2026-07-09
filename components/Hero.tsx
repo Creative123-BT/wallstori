@@ -57,22 +57,7 @@ export default function Hero() {
       onMouseLeave={handleMouseLeave}
     >
       {/* Top Right Text */}
-      <motion.div
-        className={styles.topRightText}
-        style={{
-          x: textMouseX,
-          y: textMouseY,
-        }}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
-        WE ARE COMMITTED TO<br />
-        CHAMPIONING HOME<br />
-        BUYER DREAMS AND<br />
-        REDEFINING INDUSTRY<br />
-        BENCHMARKS
-      </motion.div>
+
 
       {/* Blueprint Image Full Screen Background */}
       <motion.div
@@ -102,7 +87,19 @@ export default function Hero() {
         <LogoBlocks variant="hero" />
       </motion.div>
 
-
+      <motion.div
+        className={styles.topRightText}
+        style={{
+          x: textMouseX,
+          y: textMouseY,
+        }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      >
+        WE ARE COMMITTED TO CHAMPIONING HOME BUYER DREAMS<br />
+        AND REDEFINING INDUSTRY BENCHMARKS
+      </motion.div>
     </section>
   );
 }

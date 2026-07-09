@@ -23,6 +23,8 @@
   object-fit: cover;
   opacity: .9;
   filter: brightness(1.2) contrast(1.1);
+
+  transform: scaleX(-1);
 }
 
 /* ── Main inner ── */
@@ -37,6 +39,7 @@
   width: 100%;
   margin: 0 auto;
   padding-bottom: 20px;
+  padding-top: 50px;
 }
 
 /* ── Address block ── */
@@ -78,7 +81,8 @@
   position: relative;
   z-index: 2;
   padding: 24px 0 0;
-  text-align: left;
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
@@ -88,6 +92,7 @@
   font-size: 11px;
   letter-spacing: 0.05em;
   color: #fff;
+  text-align: end;
 }
 
 /* ── RESPONSIVE ─────────────────────────────────────── */

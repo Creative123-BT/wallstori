@@ -3,6 +3,7 @@
   background-color: #9ebbcd;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -12,11 +13,9 @@
 
 /* ── Top Right Text ── */
 .topRightText {
-  position: absolute;
-  top: 12%;
-  right: 10%;
-  text-align: left;
-  /* font-family: var(--font-heading, "Playfair Display", serif); */
+  position: relative;
+  margin-top: 20px;
+  text-align: center;
   color: #203463;
   font-size: clamp(14px, 1.5vw, 20px);
   font-weight: 700;
