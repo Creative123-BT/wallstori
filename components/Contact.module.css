@@ -59,6 +59,8 @@
   text-transform: uppercase;
 }
 
+
+
 .addressLines {
   font-size: 14px;
   line-height: 1.45;
@@ -76,6 +78,14 @@
   cursor: default;
 }
 
+.companyName:hover{
+  color: #fff;
+  transition: color 0.2s ease-out, font-size 0.2s ease-out;
+}
+ .phone:hover {
+color: #fff;
+  transition: color 0.2s ease-out, font-size 0.2s ease-out;
+}
 /* ── Footer strip ── */
 .footer {
   position: relative;
@@ -89,10 +99,11 @@
 }
 
 .copy {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.05em;
-  color: #fff;
+  color: var(--purple);
   text-align: end;
+  font-weight: 500;
 }
 
 /* ── RESPONSIVE ─────────────────────────────────────── */
