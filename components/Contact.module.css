@@ -70,20 +70,35 @@
 }
 
 .phone {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 800;
   color: var(--purple);
   letter-spacing: 0.05em;
-  text-transform: uppercase;
-  cursor: default;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.companyName:hover{
+.email {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--purple);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.companyName:hover {
   color: #fff;
   transition: color 0.2s ease-out, font-size 0.2s ease-out;
 }
- .phone:hover {
-color: #fff;
+
+.phone:hover,
+.email:hover {
+  color: #fff;
   transition: color 0.2s ease-out, font-size 0.2s ease-out;
 }
 
@@ -91,6 +106,7 @@ color: #fff;
   color: #fff;
   transition: color 0.2s ease-out, font-size 0.2s ease-out;
 }
+
 /* ── Footer strip ── */
 .footer {
   position: relative;
