@@ -23,7 +23,7 @@ export default function Contact() {
       </motion.div>
       <div className={styles.inner}>
         <motion.div className={styles.address} initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1 }}>
-          <p className={styles.companyName}>WALL STORI DEVELOPERS PVT. LTD.,</p>
+          <p className={styles.companyName}>WALL STORI DEVELOPERS PVT., LTD.,</p>
           <p className={styles.addressLines}>
             3B-120, WeWork Olympia Cyberspace,<br />
             SIDCO Industrial Estate, Guindy, Chennai-600 032.<br />

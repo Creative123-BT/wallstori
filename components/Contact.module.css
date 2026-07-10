@@ -86,6 +86,11 @@
 color: #fff;
   transition: color 0.2s ease-out, font-size 0.2s ease-out;
 }
+
+.addressLines:hover {
+  color: #fff;
+  transition: color 0.2s ease-out, font-size 0.2s ease-out;
+}
 /* ── Footer strip ── */
 .footer {
   position: relative;
